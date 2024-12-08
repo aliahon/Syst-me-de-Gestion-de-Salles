@@ -9,6 +9,7 @@
 	  <class>metier.entities.Utilisateur</class>
 	  <class>metier.entities.Salle</class>
 	  <class>metier.entities.Creneau</class>
+	  <class>metier.entities.Reservation</class>
 	  <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/GestionSalle"/>

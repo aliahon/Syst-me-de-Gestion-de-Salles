@@ -1,8 +1,8 @@
 package metier.entities;
 
 import java.io.Serializable;
-import javax.persistence.*;
 import java.util.Date;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "creneau")
@@ -12,25 +12,26 @@ public class Creneau implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Temporal(TemporalType.DATE)
-    private Date dateDebut;
+    // Utilisation de Date pour inclure la date et l'heure
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dateDebut; // Date et heure de début du créneau
 
-    @Temporal(TemporalType.DATE)
-    private Date dateFin;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dateFin;   // Date et heure de fin du créneau
 
-    private String matiere;
+    private String matiere; // Matière liée à ce créneau
 
     @ManyToOne
     @JoinColumn(name = "salle_id", nullable = false)
-    private Salle salle;
+    private Salle salle; // Salle associée à ce créneau
 
     @ManyToOne
     @JoinColumn(name = "prof_id", nullable = false)
-    private Utilisateur prof;
+    private Utilisateur prof; // Professeur associé à ce créneau
 
     @ManyToOne
     @JoinColumn(name = "filiere_id", nullable = false)
-    private Filiere filiere;
+    private Filiere filiere; // Filière associée à ce créneau
 
     // Constructeurs
     public Creneau() {}
