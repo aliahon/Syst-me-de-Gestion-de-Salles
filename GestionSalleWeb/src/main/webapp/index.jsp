@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,11 +45,11 @@
           <form method="post" action="loginServlet">
             <div class="mb-3">
               <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="Entrez votre email" required>
+              <input type="email" class="form-control" id="email" name ="email"  placeholder="Entrez votre email" required>
             </div>
             <div class="mb-3">
               <label for="password" class="form-label">Mot de passe</label>
-              <input type="password" class="form-control" id="password" placeholder="Entrez votre mot de passe" required>
+              <input type="password" class="form-control" id="password" name="password" placeholder="Entrez votre mot de passe" required>
             </div>
             
            <div class="modal-footer">

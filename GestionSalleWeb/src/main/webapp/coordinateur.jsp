@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +23,7 @@
                             <span class="profile-name">Nom de l'utilisateur</span>
                            
                         </div>
-                        <a href="index.html" class="btn btn-outline btn-deco">Déconnexion</a>
+                        <a href="index.jsp" class="btn btn-outline btn-deco">Déconnexion</a>
                     </div>
 
                       <!-- Logo -->
@@ -35,9 +35,9 @@
                     <!-- Buttons Section -->
                     <div class="buttons-section">
                         <div class="d-grid gap-3">
-                            <a href="gestionfilére.html" class="btn btn-outline  btn-custom">Gestion de Filière</a>
-                            <a href="plannificationemploi.html" class="btn btn-outline btn-custom">Planification</a>
-                            <a href="journalisation.html" class="btn btn-outline btn-custom">Journalisation</a>
+                            <a href="gestionfilére.jsp" class="btn btn-outline  btn-custom">Gestion de Filière</a>
+                            <a href="plannificationemploi.jsp" class="btn btn-outline btn-custom">Planification</a>
+                            <a href="journalisation.jsp" class="btn btn-outline btn-custom">Journalisation</a>
                         </div>
                     </div>
                 </div>

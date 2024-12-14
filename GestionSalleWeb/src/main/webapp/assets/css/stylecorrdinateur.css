@@ -1,0 +1,82 @@
+ 
+ 
+ /* la page de choix */
+ :root {
+    --main-color:#fa9715;
+}
+body {
+    background: linear-gradient(to right, #ffffff, #c0c0c0);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    border: none;
+    height: 500px;
+    width: 500px;
+    /* max-width: 400px; */
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+.btn-custom {
+    border-radius: 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 20px;
+   
+    color:  #6c757d;
+    border-color: #6c757d;
+}
+.btn-custom:hover {
+    background-color: var(--main-color);
+    color: #fff;
+}
+.profile-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.profile-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.profile-name {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-left: 10px;
+    color:  #6c757d ;
+}
+.buttons-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+.d-grid {
+    gap: 15px;
+}
+.btn-deco{
+    
+    border-color: var(--main-color);
+    background-color: var(--main-color);
+    color: white;
+}
+.btn-deco:hover{
+    color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+.logo {
+  color:  #6c757d ;
+  margin-top: 50px;
+  
+}
