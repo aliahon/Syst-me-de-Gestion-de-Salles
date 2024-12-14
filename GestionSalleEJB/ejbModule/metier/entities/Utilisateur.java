@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Table(name = "utilisateur")
 public class Utilisateur implements Serializable {
 
-    @Id
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -18,7 +18,9 @@ public class Utilisateur implements Serializable {
     private String password;
 
     private String role; // Le rôle de l'utilisateur (par exemple : "professeur", "admin", "coordinateur")
-
+    
+    private static final long serialVersionUID = 1L;
+    
     // Constructeurs
     public Utilisateur() {}
 
