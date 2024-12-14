@@ -1,9 +1,18 @@
 package metier.Reservation;
 
-public class ReservationImp {
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
-	public ReservationImp() {
-		// TODO Auto-generated constructor stub
-	}
+import metier.entities.Reservation;
+
+@Stateless(name="Reservation")
+public class ReservationImp implements ReservationLocal , ReservationRemote {
+	@PersistenceContext(unitName="GestionSalle")
+	private EntityManager em;
+    @Override
+    public void ajouterReservation(Reservation reservation) {
+        em.persist(reservation);
+    }
 
 }

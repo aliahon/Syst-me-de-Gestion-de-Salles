@@ -1,4 +1,5 @@
 package metier.salle;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -62,15 +63,6 @@ public class SalleImp implements SalleLocal,SalleRemote{
         }
     }
 
-    @Override
-    public void disponibilite(String id) {
-        Salle salle = em.find(Salle.class, id);
-        if (salle != null) {
-            salle.setDisponibilite(!salle.isDisponibilite());
-            em.merge(salle);
-        }
-    }
-
 	@Override
     public List<Salle> listSalles() {
         TypedQuery<Salle> query = em.createQuery("SELECT s FROM Salle s", Salle.class);
@@ -83,5 +75,16 @@ public class SalleImp implements SalleLocal,SalleRemote{
         if (salle != null) {
             em.remove(salle);
         }
+    }
+    
+    @Override
+    public boolean estDisponible(String salleId, Date dateDebut, Date dateFin) {
+        TypedQuery<Creneau> query = em.createQuery(
+            "SELECT c FROM Creneau c WHERE c.salle.id = :salleId AND " +
+            "((c.dateDebut < :dateFin AND c.dateFin > :dateDebut))", Creneau.class);
+        query.setParameter("salleId", salleId);
+        query.setParameter("dateDebut", dateDebut);
+        query.setParameter("dateFin", dateFin);
+        return query.getResultList().isEmpty();
     }
 }

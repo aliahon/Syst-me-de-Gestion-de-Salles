@@ -1,4 +1,5 @@
 package metier.salle;
+import java.util.Date;
 import java.util.List;
 import metier.entities.NatureSalle;
 import metier.entities.Salle;
@@ -11,7 +12,7 @@ public interface SalleLocal {
     public void modifierNature(String id , NatureSalle nature);
     public void modifierId(String id , String newId);
     public void modifierNbPlaces(String id , long nbp);
-    public void disponibilite(String id);
-    public List<Salle> listSalles();
+    public boolean estDisponible(String salleId, Date dateDebut, Date dateFin);
+    public List<Salle> listSalles();//toutes les salles 
     public void supprimerSalle(String id);
 }
