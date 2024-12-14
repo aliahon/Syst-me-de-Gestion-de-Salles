@@ -14,14 +14,16 @@ public class Salle implements Serializable {
 
     private long nbplace; // Nombre de places dans la salle
 
-    private String nature; // Nature de la salle (par exemple : "cours", "TP", "TD")
+    @Enumerated(EnumType.STRING)
+    private NatureSalle nature;
+
 
     private boolean disponibilite; // Disponibilité de la salle (true si disponible, false sinon)
 
     // Constructeurs
     public Salle() {}
 
-    public Salle(String id, String localisation, long nbplace, String nature, boolean disponibilite) {
+    public Salle(String id, String localisation, long nbplace, NatureSalle nature, boolean disponibilite) {
         this.id = id;
         this.localisation = localisation;
         this.nbplace = nbplace;
@@ -54,11 +56,11 @@ public class Salle implements Serializable {
         this.nbplace = nbplace;
     }
 
-    public String getNature() {
+    public NatureSalle getNature() {
         return nature;
     }
 
-    public void setNature(String nature) {
+    public void setNature(NatureSalle nature) {
         this.nature = nature;
     }
 
