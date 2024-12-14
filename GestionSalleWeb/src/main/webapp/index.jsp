@@ -22,7 +22,7 @@
     </div>
 
     <div class="row">
-      <div class="col-12 d-flex justify-content-center">
+      <div class="col-12 d-flex justify-content-center">		
         <button type="button" class="btn btn-outline-secondary btn-lg px-4 py-2" data-bs-toggle="modal" data-bs-target="#formModal">Connecter</button>
       </div>
     </div>
@@ -65,6 +65,15 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script>
+    // Check if the server sent a flag to open the modal
+    window.onload = function() {
+        <% if (request.getAttribute("showModal") != null && request.getAttribute("showModal").equals("true")) { %>
+            var formModal = new bootstrap.Modal(document.getElementById('formModal'));
+            formModal.show();
+        <% } %>
+    };
+</script>
 </body>
 </html>
 

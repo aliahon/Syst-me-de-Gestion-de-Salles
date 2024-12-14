@@ -20,7 +20,7 @@
                     <div class="profile-section">
                         <div class="d-flex align-items-center">
                             <img src="assets\images\Capture d’écran 2024-12-12 142058.png" alt="Profile" class="profile-img">
-                            <span class="profile-name">Nom de l'utilisateur</span>
+                            <span class="profile-name">${name}</span>
                            
                         </div>
                         <a href="index.jsp" class="btn btn-outline btn-deco">Déconnexion</a>

@@ -11,6 +11,8 @@ public interface UtilisateurLocal {
 	    
 	    Utilisateur getUtilisateur(String email);
 	    
+	    boolean validerUtilisateur(String email, String password);
+	    
 	    void modifierUtilisateur(Utilisateur u);
 	    
 	    void supprimerUtilisateur(Long id);

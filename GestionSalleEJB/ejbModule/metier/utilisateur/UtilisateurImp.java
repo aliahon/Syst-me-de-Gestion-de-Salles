@@ -56,4 +56,25 @@ public class UtilisateurImp implements UtilisateurLocal, UtilisateurRemote {
         Query req = em.createQuery("SELECT u FROM Utilisateur u WHERE u.role = 'professeur'");
         return req.getResultList();
     }
+
+
+    @Override
+    public boolean validerUtilisateur(String email, String password) {
+        try {
+            // Query to check if a user with the given email and password exists
+            TypedQuery<Utilisateur> query = em.createQuery(
+                "SELECT u FROM Utilisateur u WHERE u.email = :email AND u.password = :password", 
+                Utilisateur.class
+            );
+            query.setParameter("email", email);
+            query.setParameter("password", password);
+            
+            Utilisateur utilisateur = query.getSingleResult(); // Retrieve the result
+            
+            return utilisateur != null; // If user exists, return true
+        } catch (NoResultException e) {
+            // No matching user found, return false
+            return false;
+        }
+    }
 }
