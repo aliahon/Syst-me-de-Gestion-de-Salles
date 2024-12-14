@@ -1,0 +1,83 @@
+/* Ajout d'un fond de page avec un léger dégradé */
+body {
+    background: linear-gradient(to right, #ffffff, #d6d6d6);
+  }
+  
+  /* Effet de survol du bouton */
+  .btn-outline-secondary:hover {
+    background-color: #6c757d;
+    color: white;
+    border-color: #6c757d;
+  }
+  
+  /* Si vous voulez ajouter des marges pour espacer l'image et le bouton */
+  img {
+    margin-bottom: 5px;
+  }
+    /* Améliorer le fond de la modal */
+    .modal-content {
+        border-radius: 15px; /* Bordures arrondies */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombre légère */
+      }
+  
+      /* Modifier le style du header */
+      .modal-header {
+        padding: 1rem;
+        justify-content: center;
+        background-color: #f8f9fa; /* Fond plus clair */
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+      }
+  
+      .modal-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #495057; /* Couleur élégante */
+      }
+  
+      /* Image d'illustration dans le header */
+      .modal-header img {
+        width: 80px; /* Réduire la taille de l'image */
+        height: auto;
+        border-radius: 50%;
+      }
+  
+      /* Formulaire et champs */
+      .form-control {
+        border-radius: 10px; /* Bordures arrondies des champs */
+        padding: 0.75rem; /* Espacement confortable */
+      }
+  
+      .form-label {
+        font-weight: 500;
+        color: #6c757d; /* Couleur subtile pour les labels */
+      }
+  
+      /* Boutons */
+      .btn-outline-secondary {
+        border-radius: 50px; /* Bordures arrondies */
+        padding: 0.5rem 1.25rem; /* Taille du bouton */
+      }
+  
+      .btn-outline-primary {
+        border-radius: 50px; /* Bordures arrondies */
+        padding: 0.5rem 1.25rem;
+        background-color: #fd790d;
+        border-color: #fd790d;
+        color: white;
+      }
+  
+      .btn-outline-primary:hover {
+        background-color: #febf43; /* Changement de couleur au survol */
+      }
+  
+      .btn-outline-secondary:hover {
+        background-color: #e2e6ea; /* Changement de couleur au survol */
+      }
+  
+      /* Effet de focus sur les champs */
+      .form-control:focus {
+       border: none;
+     
+        box-shadow: 0 0 0 0.2rem rgba(246, 149, 30, 0.25); /* Ombre bleue */
+      }
