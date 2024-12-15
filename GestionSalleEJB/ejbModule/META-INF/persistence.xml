@@ -9,7 +9,7 @@
 	  <class>metier.entities.Utilisateur</class>
 	  <class>metier.entities.Role</class>
 	  <properties>
-            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+            <property name="javax.persistence.schema-generation.database.action" value="update"/>
         </properties>
 	</persistence-unit>
 </persistence>

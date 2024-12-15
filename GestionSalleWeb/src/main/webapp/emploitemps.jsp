@@ -12,7 +12,7 @@
   <div class="container mt-5">
     <h1 class="text-center">Emploi du Temps <span style="color: var(--main-color);">G-INF2</span></h1>
     <table class="table table-bordered text-center rounded-4 overflow-hidden tableprincip">
-        <thead class="tete table-light"">
+        <thead class="tete table-light">
           <tr>
             <th>Heures</th>
             <th>Lundi</th>
@@ -79,21 +79,11 @@
               <label for="subject" class="form-label">Mati�re</label>
               <select class="form-select" id="subject" required>
                 <!-- Options ajoutées dynamiquement depuis le backend -->
-                <option value="cour">math</option>
-                <option value="td">pc</option>
-                <option value="tp">si</option
               </select>
             </div>
             <div class="mb-3">
               <label for="professor" class="form-label">Professeur</label>
-              <input type="text" class="form-control" id="professor" required>
-            </div>
-            <div class="mb-3">
-              <label for="roomType" class="form-label">Professeur</label>
               <select class="form-select" id="roomType" required>
-                <option value="cour">hada</option>
-                <option value="td">akhor</option>
-                <option value="tp">howa</option>
               </select>
             </div>
             <div class="mb-3">
@@ -115,6 +105,7 @@
               <label for="roomSelect" class="form-label">Choisir une salle</label>
               <select class="form-select" id="roomSelect" required>
                 <!-- Les salles seront ajoutées dynamiquement -->
+
               </select>
             </div>
             <div class="text-end">
