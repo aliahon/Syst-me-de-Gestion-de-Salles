@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import metier.entities.Role;
 import metier.entities.Utilisateur;
 import metier.utilisateur.UtilisateurLocal;
 
@@ -33,11 +34,20 @@ public class loginServlet extends HttpServlet {
             // Successful login: Redirect to dashboard or home page
         	Utilisateur u = utilisateurService.getUtilisateur(email);
         	request.setAttribute("name", u.getNom());
-            request.getRequestDispatcher("coordinateur.jsp").forward(request, response);
+        	if(u.getRole().equals(Role.CF)) {
+        		request.getRequestDispatcher("coordinateur.jsp").forward(request, response);
+        	}
+        	else if (u.getRole().equals(Role.PROF)) {
+        		request.getRequestDispatcher("professeur.jsp").forward(request, response);
+        	}
+        	else if (u.getRole().equals(Role.RS)) {
+        		request.getRequestDispatcher("respoSalle.jsp").forward(request, response);
+        	}
+            
         } else {
             // Failed login: Return to login page with an error message
             request.setAttribute("showModal", "true");
-            request.setAttribute("errorMessage", "Invalid email or password. Please try again.");
+            request.setAttribute("errorMessage", "Adresse e-mail ou mot de passe invalide. Veuillez réessayer.");
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }
     }

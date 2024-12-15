@@ -3,6 +3,8 @@ package metier.utilisateur;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.*;
+
+import metier.entities.Role;
 import metier.entities.Utilisateur;
 
 @Stateless(name = "Utilisateur")
@@ -53,7 +55,8 @@ public class UtilisateurImp implements UtilisateurLocal, UtilisateurRemote {
     @SuppressWarnings("unchecked")
     @Override
     public List<Utilisateur> listProfesseurs() {
-        Query req = em.createQuery("SELECT u FROM Utilisateur u WHERE u.role = 'professeur'");
+        Query req = em.createQuery("SELECT u FROM Utilisateur u WHERE u.role = ?");
+        req.setParameter(1, Role.PROF);
         return req.getResultList();
     }
 

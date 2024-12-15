@@ -17,14 +17,15 @@ public class Utilisateur implements Serializable {
 
     private String password;
 
-    private String role; // Le rôle de l'utilisateur (par exemple : "professeur", "admin", "coordinateur")
+    @Enumerated(EnumType.STRING) // Stocke l'énumération en tant que String dans la base de données
+    private Role role;           // Le rôle de l'utilisateur : "prof", "cf", "rs"
     
     private static final long serialVersionUID = 1L;
     
     // Constructeurs
     public Utilisateur() {}
 
-    public Utilisateur(String nom, String email, String password, String role) {
+    public Utilisateur(String nom, String email, String password, Role role) {
         this.nom = nom;
         this.email = email;
         this.password = password;
@@ -64,11 +65,11 @@ public class Utilisateur implements Serializable {
         this.password = password;
     }
 
-    public String getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 }

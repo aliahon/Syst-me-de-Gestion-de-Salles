@@ -7,6 +7,7 @@
    <persistence-unit name="GestionSalle" transaction-type="JTA">
 	  <jta-data-source>java:/GestionSalle</jta-data-source>
 	  <class>metier.entities.Utilisateur</class>
+	  <class>metier.entities.Role</class>
 	  <properties>
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
         </properties>
