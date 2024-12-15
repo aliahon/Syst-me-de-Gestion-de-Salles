@@ -8,8 +8,12 @@
 	  <jta-data-source>java:/GestionSalle</jta-data-source>
 	  <class>metier.entities.Utilisateur</class>
 	  <class>metier.entities.Role</class>
+	  <class>metier.entities.Salle</class>
+	  <class>metier.entities.NatureSalle</class>
+	  <class>metier.entities.Filiere</class>
+	  <class>metier.entities.Creaneau</class>
 	  <properties>
-            <property name="javax.persistence.schema-generation.database.action" value="update"/>
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
         </properties>
 	</persistence-unit>
 </persistence>
