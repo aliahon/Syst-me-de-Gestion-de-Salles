@@ -69,22 +69,21 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="editModalLabel">Editer la cellule</h5>
+          <h5 class="modal-title" id="editModalLabel">é‰diter la cellule</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <!-- Ã‰tape 1: Formulaire pour matiÃ¨re, professeur, et nature de salle -->
           <form id="step1Form">
             <div class="mb-3">
-              <label for="subject" class="form-label">Matiére</label>
+              <label for="subject" class="form-label">Matière</label>
               <select class="form-select" id="subject" required>
                 <!-- Options ajoutÃ©es dynamiquement depuis le backend -->
               </select>
             </div>
             <div class="mb-3">
               <label for="professor" class="form-label">Professeur</label>
-              <select class="form-select" id="roomType" required>
-              </select>
+              <input type="text" class="form-control" id="professor" required>
             </div>
             <div class="mb-3">
               <label for="roomType" class="form-label">Type de salle</label>
@@ -105,7 +104,6 @@
               <label for="roomSelect" class="form-label">Choisir une salle</label>
               <select class="form-select" id="roomSelect" required>
                 <!-- Les salles seront ajoutÃ©es dynamiquement -->
-
               </select>
             </div>
             <div class="text-end">
@@ -162,12 +160,12 @@
       // Ajouter les salles au select
       roomSelect.innerHTML = availableRooms.map(room => `<option value="${room}">${room}</option>`).join('');
 
-      // Passer à l'étape 2
+      // Passer Ã  l'Ã©tape 2
       step1Form.classList.add('d-none');
       step2Form.classList.remove('d-none');
     });
 
-    // Retour à l'étape 1
+    // Retour Ã  l'Ã©tape 1
     document.getElementById('backBtn').addEventListener('click', function () {
       step1Form.classList.remove('d-none');
       step2Form.classList.add('d-none');
@@ -177,13 +175,13 @@
     step2Form.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      // Récupérer les données saisies
+      // RÃ©cupÃ©rer les donnÃ©es saisies
       const subject = subjectSelect.value;
       const professor = document.getElementById('professor').value;
       const room = roomSelect.value;
       const roomType = roomTypeSelect.value;
 
-      // Mettre à  jour la cellule
+      // Mettre Ã  jour la cellule
       currentCell.dataset.subject = subject;
       currentCell.dataset.professor = professor;
       currentCell.dataset.room = room;

@@ -33,22 +33,22 @@
             <div class="col-md-8 list-container">
                 <div class="list-group">
                     <div class="list-group-item">
-                        <a href="emploitemps.jsp">Informatique</a>
+                        <a href="emploitemps.html">Informatique</a>
                     </div>
                     <div class="list-group-item">
-                        <a href="emploitemps.jsp">Fid</a>
+                        <a href="emploitemps.html">Fid</a>
                     </div>
                     <div class="list-group-item">
-                        <a href="emploitemps.jsp">Indus</a>
+                        <a href="emploitemps.html">Indus</a>
                     </div>
                     <div class="list-group-item">
-                        <a href="emploitemps.jsp">électronique</a>
+                        <a href="emploitemps.html">Ã‰lectronique</a>
                     </div>
                     <div class="list-group-item">
-                        <a href="emploitemps.jsp">JEE</a>
+                        <a href="emploitemps.html">JEE</a>
                     </div>
                     <div class="list-group-item">
-                        <a href="emploitemps.jsp">BTP</a>
+                        <a href="emploitemps.html">BTP</a>
                     </div>
                 </div>
             </div>
