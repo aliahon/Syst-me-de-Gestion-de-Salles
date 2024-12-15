@@ -1,0 +1,31 @@
+:root {
+    --main-color:#fa9715;
+}
+    body {
+    background: linear-gradient(to right, #ffffff, #a7a6a6);
+
+}
+  h1{
+    margin-bottom: 40px;
+  }
+  .btn-cherche{
+    background-color: var(--main-color);
+    color: #ffffff;
+    border-color: var(--main-color);
+  }
+  .btn-cherche:hover{
+   
+    color:var(--main-color);
+    border-color: var(--main-color);
+  }
+  .form-control:focus{
+    border: none;
+    box-shadow: 0 0 10px var(--main-color);
+    outline: none;
+    
+  }
+  .form-select:focus{
+    border: none;
+    box-shadow: 0 0 10px var(--main-color);
+    outline: none;
+  }
