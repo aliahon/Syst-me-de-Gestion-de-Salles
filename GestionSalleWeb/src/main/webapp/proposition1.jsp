@@ -19,19 +19,12 @@
                     <strong>Nombre de places :</strong> 50<br>
                     <strong>Localisation :</strong> BÃ¢timent F
                 </p>
-                <button class="btn btn-confirm w-100" onclick="confirmSalle()">Confirmer</button>
+                <button class="btn btn-confirm w-100" >Confirmer</button>
             </div>
         </div>
     </div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Fonction pour gÃ©rer la confirmation de la salle
-        function confirmSalle() {
-            alert("La salle a été confirmée !");
-            // Vous pouvez intÃ©grer ici un appel vers le backend pour envoyer la confirmation
-        }
-    </script>
 </body>
 </html>

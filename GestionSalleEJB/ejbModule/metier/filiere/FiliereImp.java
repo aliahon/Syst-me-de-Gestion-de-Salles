@@ -1,12 +1,11 @@
 package metier.filiere;
-
-
 import java.util.List;
 import java.util.Map;
 
 import javax.ejb.Stateless;
 import javax.persistence.*;
 import metier.entities.*;
+
 @Stateless(name="Filiere")
 public class FiliereImp implements FiliereLocal , FiliereRemote {
 	@PersistenceContext(unitName="GestionSalle")
@@ -131,5 +130,19 @@ public class FiliereImp implements FiliereLocal , FiliereRemote {
 	    }
 		
 	}
+
+	@Override
+	public void modifierFiliere(Filiere filiere) {
+		em.merge(filiere);
+	}
+
+	@Override
+    public boolean existeFiliere(String nomFiliere) {
+        // Rechercher une filière avec le même nom
+        TypedQuery<Filiere> query = em.createQuery("SELECT f FROM Filiere f WHERE f.nom = :nom", Filiere.class);
+        query.setParameter("nom", nomFiliere);
+        List<Filiere> result = query.getResultList();
+        return !result.isEmpty(); // Retourne true si la filière existe, false sinon
+    }
 
 }

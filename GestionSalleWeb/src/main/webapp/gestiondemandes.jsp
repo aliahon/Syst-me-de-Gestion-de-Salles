@@ -34,7 +34,7 @@
             link.className = "list-group-item list-group-item-action list-group-item-suc list-group-item-confirmer  mb-3 rounded-3 p-3";
             link.textContent = demande.titre;
             // Redirection vers une autre page avec l'ID de la demande dans l'URL
-            link.href = `proposition1.html?id=${demande.id}`;
+            link.href = `proposition1.jsp?id=${demande.id}`;
             demandeList.appendChild(link);
         });
     </script>

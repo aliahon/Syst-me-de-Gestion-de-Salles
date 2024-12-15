@@ -41,7 +41,7 @@ public class loginServlet extends HttpServlet {
         		request.getRequestDispatcher("professeur.jsp").forward(request, response);
         	}
         	else if (u.getRole().equals(Role.RS)) {
-        		request.getRequestDispatcher("respoSalle.jsp").forward(request, response);
+        		request.getRequestDispatcher("gestionnaire.jsp").forward(request, response);
         	}
             
         } else {

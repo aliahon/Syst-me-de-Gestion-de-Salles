@@ -21,7 +21,7 @@
                             <span class="profile-name">Nom de l'utilisateur</span>
                            
                         </div>
-                        <a href="index.html" class="btn btn-outline btn-deco">Déconnexion</a>
+                        <a href="index.html" class="btn btn-outline btn-deco">Deconnexion</a>
                     </div>
 
                       <!-- Logo -->
@@ -33,8 +33,8 @@
                     <!-- Buttons Section -->
                     <div class="buttons-section">
                         <div class="d-grid gap-3">
-                            <a href="reservationsall.jsp" class="btn btn-outline  btn-custom">Gestion Des Salles</a>
-                            <a href="liberation.jsp" class="btn btn-outline btn-custom">Gestion Des Demandes</a>
+                            <a href="salles.jsp" class="btn btn-outline  btn-custom">Gestion Des Salles</a>
+                            <a href="gestiondemandes.jsp" class="btn btn-outline btn-custom">Gestion Des Demandes</a>
                             <a href="journalisation.jsp" class="btn btn-outline btn-custom">Journalisation</a>
                         </div>
                     </div>

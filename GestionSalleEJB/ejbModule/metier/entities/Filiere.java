@@ -19,7 +19,7 @@ public class Filiere implements Serializable {
 
     private long effectif;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(
         name = "filiere_matieres", // Nom de la table d'association
         joinColumns = @JoinColumn(name = "filiere_id") // Clé étrangère vers Filiere
@@ -74,5 +74,14 @@ public class Filiere implements Serializable {
 
     public void setEmploiDuTemps(List<Creneau> emploiDuTemps) {
         this.emploiDuTemps = emploiDuTemps;
+    }
+ // Nouvelle méthode pour calculer la charge horaire totale
+    public int getChargeHoraireTotale() {
+        return matieres.values().stream().mapToInt(Integer::intValue).sum();
+    }
+
+    // Nouvelle méthode pour récupérer les noms des matières séparés par des virgules
+    public String getNomsMatieres() {
+        return String.join(", ", matieres.keySet());
     }
 }

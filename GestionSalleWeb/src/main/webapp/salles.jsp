@@ -56,16 +56,15 @@
                     </tr>
                 </thead>
                 <tbody id="salleList">
-                    <!-- Les lignes sont ajoutées au chargement pour exemple -->
                     <tr>
                         <td>1</td>
                         <td>F12</td>
                         <td>Cours</td>
                         <td>40</td>
-                        <td> Bâtiment F, troisième étage </td>
+                        <td> Bâtiment F, troisi�me �tage </td>
                         <td>
-                            <button class="btn btn-outline-warning btn-sm" onclick="modifierSalle(this)">Modifier</button>
-                            <button class="btn btn-outline-danger btn-sm" onclick="supprimerSalle(this)">Supprimer</button>
+                            <button class="btn btn-outline-warning btn-sm" >Modifier</button>
+                            <button class="btn btn-outline-danger btn-sm" >Supprimer</button>
                         </td>
                     </tr>
                     <tr>
@@ -76,8 +75,8 @@
                         <td>
                             Bâtiment K, premier étage </td>
                         <td>
-                            <button class="btn btn-outline-warning btn-sm" onclick="modifierSalle(this)">Modifier</button>
-                            <button class="btn btn-outline-danger btn-sm" onclick="supprimerSalle(this)">Supprimer</button>
+                            <button class="btn btn-outline-warning btn-sm">Modifier</button>
+                            <button class="btn btn-outline-danger btn-sm" >Supprimer</button>
                         </td>
                     </tr>
                     <tr>
@@ -85,10 +84,10 @@
                         <td>h11</td>
                         <td>cours</td>
                         <td>50</td>
-                        <td>Bâtiment H, premier étage</td>
+                        <td>B�timent H, premier �tage</td>
                         <td>
-                            <button class="btn btn-outline-warning btn-sm" onclick="modifierSalle(this)">Modifier</button>
-                            <button class="btn btn-outline-danger btn-sm" onclick="supprimerSalle(this)">Supprimer</button>
+                            <button class="btn btn-outline-warning btn-sm" >Modifier</button>
+                            <button class="btn btn-outline-danger btn-sm" >Supprimer</button>
                         </td>
                     </tr>
                 </tbody>
@@ -98,60 +97,6 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        let salleIndex = 4; // Démarrer à 4 pour continuer après les exemples
-
-        // Ajouter une salle
-        document.getElementById("ajouterSalle").addEventListener("click", function () {
-            const type = document.getElementById("typeSalle").value;
-            const nombre = document.getElementById("nombreSalle").value;
-            const localisation = document.getElementById("localisationSalle").value;
-
-            if (type && nombre && localisation) {
-                const table = document.getElementById("salleList");
-                const row = document.createElement("tr");
-
-                row.innerHTML = `
-                    <td>${salleIndex++}</td>
-                    <td>${type}</td>
-                    <td>${nombre}</td>
-                    <td>${localisation}</td>
-                    <td>
-                        <button class="btn btn-warning btn-sm me-2" onclick="modifierSalle(this)">Modifier</button>
-                        <button class="btn btn-danger btn-sm" onclick="supprimerSalle(this)">Supprimer</button>
-                    </td>
-                `;
-
-                table.appendChild(row);
-
-                // Réinitialiser le formulaire
-                document.getElementById("formSalle").reset();
-            } else {
-                alert("Veuillez remplir tous les champs !");
-            }
-        });
-
-        // Modifier une salle
-        function modifierSalle(button) {
-            const row = button.closest("tr");
-            const type = row.children[1].innerText;
-            const nombre = row.children[2].innerText;
-            const localisation = row.children[3].innerText;
-
-            // Pré-remplir le formulaire
-            document.getElementById("typeSalle").value = type;
-            document.getElementById("nombreSalle").value = nombre;
-            document.getElementById("localisationSalle").value = localisation;
-
-            // Supprimer la ligne existante
-            row.remove();
-        }
-
-        // Supprimer une salle
-        function supprimerSalle(button) {
-            const row = button.closest("tr");
-            row.remove();
-        }
-    </script>
+    
 </body>
 </html>
