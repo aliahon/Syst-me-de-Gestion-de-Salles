@@ -31,6 +31,15 @@
 	    <servlet-name>FiliereServlet</servlet-name>
 	    <url-pattern>/FiliereServlet</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+	    <servlet-name>SalleServlet</servlet-name>
+	    <servlet-class>web.SalleServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>SalleServlet</servlet-name>
+	    <url-pattern>/SalleServlet</url-pattern>
+	</servlet-mapping>
 
 </web-app>
 

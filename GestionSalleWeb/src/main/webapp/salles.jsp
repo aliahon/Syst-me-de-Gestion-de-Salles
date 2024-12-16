@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="metier.entities.NatureSalle" %>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -14,28 +16,29 @@
             <div class="col-md-6 offset-md-3">
                 <div class="card p-4">
                     <h2 class="text-center form-title">Ajouter une Nouvelle Salle</h2>
-                    <form id="formSalle">
+                    <form id="formSalle" action="SalleServlet" method="post">
                         <div class="mb-3">
                             <div class="mb-3">
-                                <label for="NomSalle" class="form-label">Nom De Salle</label>
-                                <input type="text" class="form-control" id="NomSalle" placeholder="Entrez la localisation">
+                                <label for="nomSalle" class="form-label">Nom De Salle</label>
+                                <input type="text" class="form-control" id="nomSalle" name="nomSalle" placeholder="Entrez la localisation">
                             </div>
-                            <label for="typeSalle" class="form-label">Type de Salle</label>
-                            <select class="form-select" id="typeSalle">
-                                <option value="Cours">Cours</option>
-                                <option value="TD">TD</option>
-                                <option value="TP">TP</option>
-                            </select>
+                            <label for="typeSalle" class="form-label">Nature de Salle</label>
+						    <select class="form-select" id="natureSalle" name="natureSalle">
+						        <c:forEach var="nature" items="<%= NatureSalle.values() %>">
+						            <option value="${nature}">${nature}</option>
+						        </c:forEach>
+						    </select>
                         </div>
                         <div class="mb-3">
                             <label for="nombreplace" class="form-label">Nombre de Places</label>
-                            <input type="number" class="form-control" id="nombreplaces" placeholder="Entrez le nombre de salles">
+                            <input type="number" class="form-control" id="nombreplaces" name="nombreplaces" placeholder="Entrez le nombre de salles">
                         </div>
                         <div class="mb-3">
                             <label for="localisationSalle" class="form-label">Localisation</label>
-                            <input type="text" class="form-control" id="localisationSalle" placeholder="Entrez la localisation">
+                            <input type="text" class="form-control" id="localisationSalle" name="localisationSalle" placeholder="Entrez la localisation">
                         </div>
-                        <button type="button" id="ajouterSalle" class="btn btn-outline btn-custom w-100">Ajouter la Salle</button>
+                        <input type="hidden" name="action" value="ajouter">
+                        <button type="submit" id="ajouterSalle" class="btn btn-outline btn-custom w-100">Ajouter la Salle</button>
                     </form>
                 </div>
             </div>
@@ -56,40 +59,30 @@
                     </tr>
                 </thead>
                 <tbody id="salleList">
+                <c:set var="counter" value="0" scope="page" />
+                
+    				<c:forEach var="salle" items="${salles}">
+				    <c:set var="counter" value="${counter + 1}" />
                     <tr>
-                        <td>1</td>
-                        <td>F12</td>
-                        <td>Cours</td>
-                        <td>40</td>
-                        <td> BÃ¢timent F, troisième étage </td>
+                        <td>${counter}</td>
+                        <td>${salle.id}</td>
+                        <td>${salle.nature}</td>
+                        <td>${salle.nbPlace}</td>
+                        <td>${salle.localisation}</td>
                         <td>
-                            <button class="btn btn-outline-warning btn-sm" >Modifier</button>
-                            <button class="btn btn-outline-danger btn-sm" >Supprimer</button>
+                        		<form method="get" action="SalleServlet">
+				                        <input type="hidden" name="action" value="modifier">
+				                        <input type="hidden" name="idSalle" value="${salle.id}">
+				                        <button type="submit" class="btn btn-outline-warning btn-sm">Modifier</button>
+				                </form>
+				                <form method="post" action="SalleServlet">
+				                        <input type="hidden" name="action" value="supprimer">
+				                        <input type="hidden" name="idSalle" value="${salle.id}">
+				                        <button type="submit" class="btn btn-outline-danger btn-sm">Supprimer</button>
+				                </form>
                         </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>K2</td>
-                        <td>Tp</td>
-                        <td>30</td>
-                        <td>
-                            BÃ¢timent K, premier Ã©tage </td>
-                        <td>
-                            <button class="btn btn-outline-warning btn-sm">Modifier</button>
-                            <button class="btn btn-outline-danger btn-sm" >Supprimer</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>h11</td>
-                        <td>cours</td>
-                        <td>50</td>
-                        <td>Bàtiment H, premier étage</td>
-                        <td>
-                            <button class="btn btn-outline-warning btn-sm" >Modifier</button>
-                            <button class="btn btn-outline-danger btn-sm" >Supprimer</button>
-                        </td>
-                    </tr>
+                    </c:forEach>
                 </tbody>
             </table>
         </div>

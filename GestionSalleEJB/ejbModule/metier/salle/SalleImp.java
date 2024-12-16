@@ -18,8 +18,8 @@ public class SalleImp implements SalleLocal,SalleRemote{
     private EntityManager em;
 
 	@Override
-    public void ajouterSalle(Salle salle) {
-        em.persist(salle);
+    public void modifierSalle(Salle salle) {
+        em.merge(salle);
     }
 
     @Override
@@ -34,40 +34,6 @@ public class SalleImp implements SalleLocal,SalleRemote{
         return query.getResultList();
     }
 
-    @Override
-    public void modifierLocalisation(String id, String local) {
-        Salle salle = em.find(Salle.class, id);
-        if (salle != null) {
-            salle.setLocalisation(local);
-            em.merge(salle);
-        }
-    }
-    @Override
-    public void modifierNature(String id, NatureSalle nature) {
-        Salle salle = em.find(Salle.class, id);
-        if (salle != null) {
-            salle.setNature(nature);
-            em.merge(salle);
-        }
-    }
-
-    @Override
-    public void modifierId(String id, String newId) {
-        Salle salle = em.find(Salle.class, id);
-        if (salle != null) {
-            salle.setId(newId);
-            em.merge(salle);
-        }
-    }
-
-    @Override
-    public void modifierNbPlaces(String id, long nbp) {
-        Salle salle = em.find(Salle.class, id);
-        if (salle != null) {
-            salle.setNbplace(nbp);
-            em.merge(salle);
-        }
-    }
 
 	@Override
     public List<Salle> listSalles() {
@@ -93,4 +59,5 @@ public class SalleImp implements SalleLocal,SalleRemote{
         query.setParameter("dateFin", dateFin);
         return query.getResultList().isEmpty();
     }
+    
 }

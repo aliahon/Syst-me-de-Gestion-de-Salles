@@ -22,18 +22,14 @@ public class Salle implements Serializable {
     @Enumerated(EnumType.STRING)
     private NatureSalle nature;
 
-
-    private boolean disponibilite; // Disponibilité de la salle (true si disponible, false sinon)
-
     // Constructeurs
     public Salle() {}
 
-    public Salle(String id, String localisation, long nbplace, NatureSalle nature, boolean disponibilite) {
+    public Salle(String id, String localisation, long nbplace, NatureSalle nature) {
         this.id = id;
         this.localisation = localisation;
         this.nbplace = nbplace;
         this.nature = nature;
-        this.disponibilite = disponibilite;
     }
 
     // Getters et Setters
@@ -67,13 +63,5 @@ public class Salle implements Serializable {
 
     public void setNature(NatureSalle nature) {
         this.nature = nature;
-    }
-
-    public boolean isDisponibilite() {
-        return disponibilite;
-    }
-
-    public void setDisponibilite(boolean disponibilite) {
-        this.disponibilite = disponibilite;
     }
 }

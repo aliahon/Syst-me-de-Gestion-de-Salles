@@ -10,6 +10,7 @@ import metier.entities.*;
 public class FiliereImp implements FiliereLocal , FiliereRemote {
 	@PersistenceContext(unitName="GestionSalle")
 	private EntityManager em;
+	
 	@Override
 	public void ajouterFiliere(Filiere F) {
 		 em.persist(F);
