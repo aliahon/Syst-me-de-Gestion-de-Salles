@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,29 +68,30 @@
                 </thead>
                 <tbody>
                 <c:set var="counter" value="0" scope="page" />
-    <c:forEach var="filiere" items="${filieres}">
-    <c:set var="counter" value="${counter + 1}" />
-        <tr>
-            <td> ${counter}</td>
-            <td>${filiere.nom}</td>
-            <td>${filiere.effectif}</td>
-            <td>${filiere.chargeHoraireTotale}</td> <!-- Charge Horaire Totale -->
-            <td>${filiere.nomsMatieres}</td> <!-- Noms des matières -->
-            <td>
-                <form method="get" action="ServletAjoutFiliere">
-                        <input type="hidden" name="action" value="modifier">
-                        <input type="hidden" name="idFiliere" value="${filiere.id}">
-                        <button type="submit" class="btn btn-outline-warning btn-sm">Modifier</button>
-                </form>
-                <form method="post" action="ServletAjoutFiliere">
-                        <input type="hidden" name="action" value="supprimer">
-                        <input type="hidden" name="idFiliere" value="${filiere.id}">
-                        <button type="submit" class="btn btn-outline-danger btn-sm">Supprimer</button>
-                </form>
-            </td>
-        </tr>
-    </c:forEach>
-</tbody>
+                
+    				<c:forEach var="filiere" items="${filieres}">
+				    <c:set var="counter" value="${counter + 1}" />
+				        <tr>
+				            <td> ${counter}</td>
+				            <td>${filiere.nom}</td>
+				            <td>${filiere.effectif}</td>
+				            <td>${filiere.chargeHoraireTotale}</td> <!-- Charge Horaire Totale -->
+				            <td>${filiere.nomsMatieres}</td> <!-- Noms des matières -->
+				            <td>
+				                <form method="get" action="ServletAjoutFiliere">
+				                        <input type="hidden" name="action" value="modifier">
+				                        <input type="hidden" name="idFiliere" value="${filiere.id}">
+				                        <button type="submit" class="btn btn-outline-warning btn-sm">Modifier</button>
+				                </form>
+				                <form method="post" action="ServletAjoutFiliere">
+				                        <input type="hidden" name="action" value="supprimer">
+				                        <input type="hidden" name="idFiliere" value="${filiere.id}">
+				                        <button type="submit" class="btn btn-outline-danger btn-sm">Supprimer</button>
+				                </form>
+				            </td>
+				        </tr>
+				    </c:forEach>
+				</tbody>
             </table>
         </div>
     </div>

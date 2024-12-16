@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion des FiliÃ¨res</title>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <title>Gestion des Filières</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets\css\styleplann.css" rel="stylesheet">
@@ -32,25 +33,12 @@
         <div class="row justify-content-center">
             <div class="col-md-8 list-container">
                 <div class="list-group" id="filiere-list">
+                
+                <c:forEach var="filiere" items="${filieres}">
                     <div class="list-group-item">
-                        <a href="emploitemps.html">Informatique</a>
+                        <a href="emploitemps.jsp?idFiliere=${filiere.id}">${filiere.nom}</a>
                     </div>
-                    <div class="list-group-item">
-                        <a href="emploitemps.html">Fid</a>
-                    </div>
-                    <div class="list-group-item">
-                        <a href="emploitemps.html">Indus</a>
-                    </div>
-                    <div class="list-group-item">
-                        <a href="emploitemps.html">Electronique</a>
-                    </div>
-                    <div class="list-group-item">
-                        <a href="emploitemps.html">JEE</a>
-                    </div>
-                    <div class="list-group-item">
-                        <a href="emploitemps.html">BTP</a>
-                    </div>
-                    
+                  </c:forEach>  
                 </div>
             </div>
         </div>

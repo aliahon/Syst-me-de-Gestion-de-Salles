@@ -22,6 +22,15 @@
 	    <servlet-name>ServletAjoutFiliere</servlet-name>
 	    <url-pattern>/ServletAjoutFiliere</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+	    <servlet-name>FiliereServlet</servlet-name>
+	    <servlet-class>web.FiliereServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>FiliereServlet</servlet-name>
+	    <url-pattern>/FiliereServlet</url-pattern>
+	</servlet-mapping>
 
 </web-app>
 
