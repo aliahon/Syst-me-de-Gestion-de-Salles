@@ -14,7 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import metier.entities.Filiere;
 import metier.filiere.FiliereLocal;
 
-@WebServlet("/ServletAjoutFiliere")
+
+@WebServlet(name="ServletAjoutFiliere", urlPatterns="/ServletAjoutFiliere")
 public class ServletAjoutFiliere extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -22,7 +23,7 @@ public class ServletAjoutFiliere extends HttpServlet {
     private FiliereLocal filiereService;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
+    	
     	String action = request.getParameter("action");
     	if ("supprimer".equals(action)) {
             String idFiliere = request.getParameter("idFiliere");

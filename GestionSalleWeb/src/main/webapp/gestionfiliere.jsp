@@ -20,28 +20,28 @@
                     <form action="ServletAjoutFiliere" method="post">
                         <div class="mb-3">
                             <label for="nomFiliere" class="form-label">Nom de la Filière</label>
-                            <input type="text" class="form-control" value="${filiere != null ? filiere.nom : ''}" id="nomFiliere" name="nomFiliere" placeholder="Entrez le nom de la filière">
+                            <input type="text" class="form-control" value="${filiere != null ? filiere.nom : ''}" id="nomFiliere" name="nomFiliere" placeholder="Entrez le nom de la filière" required>
                         </div>
                         <div class="mb-3">
                             <label for="effectif" class="form-label">Effectif</label>
-                            <input type="number" class="form-control"  value="${filiere != null ? filiere.effectif : ''}" id="effectif" name="effectif" placeholder="Entrez l'effectif">
+                            <input type="number" class="form-control"  value="${filiere != null ? filiere.effectif : ''}" id="effectif" name="effectif" placeholder="Entrez l'effectif" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Matières et Charges Horaires</label>
                             <div id="matiereContainer">
                                  <c:forEach var="matiere" items="${filiere.matieres}">
-                <div class="row g-2 mb-2">
-                    <div class="col-6">
-                        <input type="text" class="form-control" name="matiere[]" value="${matiere.key}" placeholder="Matière">
-                    </div>
-                    <div class="col-4">
-                        <input type="number" class="form-control" name="charge[]" value="${matiere.value}" placeholder="Charge horaire">
-                    </div>
-                    <div class="col-2">
-                        <button type="button" class="btn btn-outline btn-custom btn-sm removeMatiere">X</button>
-                    </div>
-                </div>
-            </c:forEach>
+					                <div class="row g-2 mb-2">
+					                    <div class="col-6">
+					                        <input type="text" class="form-control" name="matiere[]" value="${matiere.key}" placeholder="Matière" required>
+					                    </div>
+					                    <div class="col-4">
+					                        <input type="number" class="form-control" name="charge[]" value="${matiere.value}" placeholder="Charge horaire" required>
+					                    </div>
+					                    <div class="col-2">
+					                        <button type="button" class="btn btn-outline btn-custom btn-sm removeMatiere">X</button>
+					                    </div>
+					                </div>
+					            </c:forEach>
                             </div>
                             <button type="button" id="addMatiere" class="btn btn-outline btn-custom btn-sm">Ajouter une Matière</button>
                         </div>

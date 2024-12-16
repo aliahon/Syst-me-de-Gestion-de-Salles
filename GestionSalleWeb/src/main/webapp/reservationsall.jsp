@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Réservation des Salles</title>
+    <title>R�servation des Salles</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/stylereservesalle.css" rel="stylesheet">
@@ -70,7 +70,7 @@
                     <!-- Demande Confirmée -->
                     <div class="list-group-item list-group-item-suc d-flex justify-content-between align-items-center mb-3 rounded-3">
                         <div>
-                            <h5 class="mb-1">Demande Confirmée</h5>
+                            <h5 class="mb-1">Demande Confirm�e</h5>
                             <p class="mb-0">Date : 2024-12-15 |Type Salle : Cours | Créneau : 8:30 - 10:20</p>
                         </div>
                         <button class="btn btn-outline-dark btn-sm">Voir Informations</button>
@@ -107,8 +107,6 @@
                         </div>
                     </div>
 
-                    <!-- Autres Demandes Dynamisées -->
-                    <!-- Ces demandes peuvent être générées via le backend -->
                 </div>
             </div>
         </div>
