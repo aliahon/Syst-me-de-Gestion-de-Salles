@@ -35,7 +35,7 @@
                     <!-- Buttons Section -->
                     <div class="buttons-section">
                         <div class="d-grid gap-3">
-                            <a href="gestionfiliere.jsp" class="btn btn-outline  btn-custom">Gestion de Filière</a>
+                            <a href="ServletAjoutFiliere" class="btn btn-outline  btn-custom">Gestion de Filière</a>
                             <a href="FiliereServlet" class="btn btn-outline btn-custom">Planification</a>
                             <a href="journalisation.jsp" class="btn btn-outline btn-custom">Journalisation</a>
                         </div>

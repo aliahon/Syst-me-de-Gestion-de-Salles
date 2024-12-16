@@ -38,7 +38,7 @@
                     <div class="list-group-item">
                         <a href="emploitemps.jsp?idFiliere=${filiere.id}">${filiere.nom}</a>
                     </div>
-                  </c:forEach>  
+                </c:forEach>  
                 </div>
             </div>
         </div>
