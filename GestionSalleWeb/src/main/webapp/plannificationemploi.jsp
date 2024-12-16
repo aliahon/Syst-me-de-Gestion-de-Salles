@@ -9,6 +9,7 @@
     <link href="assets\css\styleplann.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
    
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <!-- Header -->
@@ -22,8 +23,7 @@
             <div class="col-md-8 search-bar">
                 <form class="d-flex">
                     <i class="fas fa-search icon "></i>
-                    <input class="form-control me-2" type="search" placeholder="Rechercher une filière" aria-label="Search">
-                    <button class="btn btn-search" type="submit">Rechercher</button>
+                    <input id="filter" class="form-control me-2" type="search" placeholder="Rechercher une fili�re ..." aria-label="Search">
                 </form>
             </div>
         </div>
@@ -31,7 +31,7 @@
         <!-- Liste des Filières -->
         <div class="row justify-content-center">
             <div class="col-md-8 list-container">
-                <div class="list-group">
+                <div class="list-group" id="filiere-list">
                     <div class="list-group-item">
                         <a href="emploitemps.html">Informatique</a>
                     </div>
@@ -42,7 +42,7 @@
                         <a href="emploitemps.html">Indus</a>
                     </div>
                     <div class="list-group-item">
-                        <a href="emploitemps.html">Électronique</a>
+                        <a href="emploitemps.html">Electronique</a>
                     </div>
                     <div class="list-group-item">
                         <a href="emploitemps.html">JEE</a>
@@ -50,6 +50,7 @@
                     <div class="list-group-item">
                         <a href="emploitemps.html">BTP</a>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -57,5 +58,22 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+	    $(document).ready(function () {
+	        $("#filter").on("keyup", function () {
+	            var value = $(this).val().trim().toLowerCase(); // Remove spaces and convert to lowercase
+	
+	            if (value === "") {
+	                // If the input is empty or spaces, show all items
+	                $("#filiere-list .list-group-item").show();
+	            } else {
+	                // Filter the list
+	                $("#filiere-list .list-group-item").filter(function () {
+	                    $(this).toggle($(this).text().toLowerCase().includes(value));
+	                });
+	            }
+	        });
+	    });
+    </script>
 </body>
 </html>
