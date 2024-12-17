@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import="metier.entities.NatureSalle" %>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -19,23 +19,25 @@
                     <form id="formSalle" action="SalleServlet" method="post">
                         <div class="mb-3">
                             <div class="mb-3">
-                                <label for="nomSalle" class="form-label">Nom De Salle</label>
-                                <input type="text" class="form-control" id="nomSalle" name="nomSalle" placeholder="Entrez la localisation">
+                                <label for="nomSalle" class="form-label">Nom De Salle</label> 
+                                <input type="text" class="form-control" id="nomSalle" value="${salle != null ? salle.nom : ''}"  name="nomSalle" placeholder="Entrez la localisation" required>
                             </div>
                             <label for="typeSalle" class="form-label">Nature de Salle</label>
-						    <select class="form-select" id="natureSalle" name="natureSalle">
-						        <c:forEach var="nature" items="<%= NatureSalle.values() %>">
-						            <option value="${nature}">${nature}</option>
-						        </c:forEach>
-						    </select>
+						    <select class="form-select" id="natureSalle" name="natureSalle" required>
+							    <c:forEach var="nature" items="${natureSalleList}">
+							        <option value="${nature}" ${salle != null && salle.natureSalle == nature ? 'selected' : ''}>
+							            ${nature}
+							        </option>
+							    </c:forEach>
+							</select>
                         </div>
                         <div class="mb-3">
                             <label for="nombreplace" class="form-label">Nombre de Places</label>
-                            <input type="number" class="form-control" id="nombreplaces" name="nombreplaces" placeholder="Entrez le nombre de salles">
+                            <input type="number" class="form-control" id="nombreplaces" name="nombreplaces" value="${salle != null ? salle.nbplace : ''}" placeholder="Entrez le nombre de salles" required>
                         </div>
                         <div class="mb-3">
                             <label for="localisationSalle" class="form-label">Localisation</label>
-                            <input type="text" class="form-control" id="localisationSalle" name="localisationSalle" placeholder="Entrez la localisation">
+                            <input type="text" class="form-control" id="localisationSalle" name="localisationSalle" value="${salle != null ? salle.localisation : ''}" placeholder="Entrez la localisation" required>
                         </div>
                         <input type="hidden" name="action" value="ajouter">
                         <button type="submit" id="ajouterSalle" class="btn btn-outline btn-custom w-100">Ajouter la Salle</button>
@@ -67,7 +69,7 @@
                         <td>${counter}</td>
                         <td>${salle.id}</td>
                         <td>${salle.nature}</td>
-                        <td>${salle.nbPlace}</td>
+                        <td>${salle.nbplace}</td>
                         <td>${salle.localisation}</td>
                         <td>
                         		<form method="get" action="SalleServlet">

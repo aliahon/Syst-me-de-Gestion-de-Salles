@@ -27,6 +27,9 @@ public class SalleServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		// Pass enum values to JSP
+	    request.setAttribute("natureSalleList", NatureSalle.values());
+	    
 		String action = request.getParameter("action");
     	if ("supprimer".equals(action)) {
             String idSalle = request.getParameter("idSalle");
@@ -39,7 +42,14 @@ public class SalleServlet extends HttpServlet {
 
         String localisationSalle= request.getParameter("localisationSalle"); // Localisation de la salle
 
-        long nombreplace = Long.parseLong(request.getParameter("nombreplace")); // Nombre de places dans la salle
+        String nombreplaceParam = request.getParameter("nombreplace");
+        long nombreplace = 0; // Default value
+
+        if (nombreplaceParam != null && !nombreplaceParam.isEmpty()) {
+            
+                nombreplace = Long.parseLong(nombreplaceParam);
+            
+        }
 
         NatureSalle natureSalle = NatureSalle.valueOf(request.getParameter("natureSalle"));
 
