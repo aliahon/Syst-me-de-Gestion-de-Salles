@@ -20,12 +20,12 @@
                         <div class="mb-3">
                             <div class="mb-3">
                                 <label for="nomSalle" class="form-label">Nom De Salle</label> 
-                                <input type="text" class="form-control" id="nomSalle" value="${salle != null ? salle.nom : ''}"  name="nomSalle" placeholder="Entrez la localisation" required>
+                                <input type="text" class="form-control" id="nomSalle" value="${salle != null ? salle.id : ''}"  name="nomSalle" placeholder="Entrez la localisation" required>
                             </div>
                             <label for="typeSalle" class="form-label">Nature de Salle</label>
 						    <select class="form-select" id="natureSalle" name="natureSalle" required>
 							    <c:forEach var="nature" items="${natureSalleList}">
-							        <option value="${nature}" ${salle != null && salle.natureSalle == nature ? 'selected' : ''}>
+							        <option value="${nature}" ${salle != null && salle.nature == nature ? 'selected' : ''}>
 							            ${nature}
 							        </option>
 							    </c:forEach>
@@ -46,7 +46,7 @@
             </div>
         </div>
 
-        <!-- Section des salles listÃ©es -->
+        <!-- Section des salles listées -->
         <div class="mt-5">
             <h2 class="text-center">Liste des Salles</h2>
             <table class="table table-hover table-striped">
