@@ -1,0 +1,119 @@
+<!-- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historique des Salles</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Styles Globaux */
+        :root {
+    --main-color:#fa9715;
+}
+        body {
+            background: linear-gradient(to right, #ffffff, #c0c0c0);
+            font-family: 'Poppins', sans-serif;
+           
+        }
+        h1 {
+            color: var(--main-color);
+            font-weight: 700;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+        .table-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .table {
+            margin-bottom: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border-color: rgb(92, 92, 92);
+        }
+      
+        tbody tr {
+            transition: all 0.2s ease-in-out;
+        }
+        tbody tr:hover {
+            transform: scale(1.02);
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        tbody .ajoute td {
+            background:orange ;
+            color: black;
+        }
+        tbody .supprim  td{
+            background:gray ;
+            color: rgb(255, 255, 255);
+        }
+        td, th {
+            text-align: center;
+            padding: 15px;
+        }
+        th {
+            font-weight: 600;
+            font-size: 1rem;
+            background-color: #ffd78d;
+        }
+        td {
+            font-size: 0.95rem;
+        }
+      
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Historique des Salles</h1>
+        <div class="table-container">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Type d'Opération</th>
+                        <th>Détail</th>
+                        <th>Date d'Opération</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Exemple de données dynamiques -->
+                    <tr class="ajoute">
+                        <td>Salle F12</td>
+                        <td>Ajout</td>
+                        <td>Salle ajoutée : F12</td>
+                        <td>12-12-2024</td>
+                    </tr>
+                    <tr class="supprim">
+                        <td>Salle F08</td>
+                        <td>Suppression</td>
+                        <td>Salle supprimée : F08</td>
+                        <td>10-12-2024</td>
+                    </tr>
+                    <tr class="ajoute">
+                        <td>Salle B02</td>
+                        <td>Ajout</td>
+                        <td>Salle ajoutée : B02</td>
+                        <td>08-12-2024</td>
+                    </tr>
+                    <tr class="supprim">
+                        <td>Salle A01</td>
+                        <td>Suppression</td>
+                        <td>Salle supprimée : A01</td>
+                        <td>05-12-2024</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

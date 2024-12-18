@@ -1,0 +1,75 @@
+:root {
+    --main-color:#fa8815;
+}
+body {
+    background: linear-gradient(to right, #ffffff, #c0c0c0);
+    min-height: 100vh;
+    padding: 20px;
+}
+.form-title {
+    /* font-weight: bold; */
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    /* color: #fb8d1f ; */
+    color:var(--main-color);
+   
+}
+.form-label{
+    /* font-weight: bold; */
+    
+}
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.btn-custom {
+    border-radius: 20px;
+    padding: 10px 20px;
+    color:#ffffff;
+    border-color:  var(--main-color);
+    background-color: var(--main-color);
+  
+  
+}
+.btn-custom:hover {
+    color:var(--main-color);
+    border-color: var(--main-color);
+   
+   
+}
+
+
+.table-container {
+    margin-top: 30px;
+ 
+}
+.btn-outline-warning{
+    color:var(--main-color);
+    border-color:var(--main-color) ;
+    
+}
+.btn-outline-warning:hover{
+    color:#fff9f9;
+    border-color:var(--main-color) ;
+    background-color:var(--main-color)  ;
+    
+}
+.btn-outline-danger{
+    color:#000000;
+    border-color:#000000; 
+}
+.btn-outline-danger:hover{
+    color:#fff9f9;
+    border-color:#000000;
+    background-color: #000000; 
+}
+.form-control:focus {
+border: none;
+
+box-shadow: 0 0 0 0.2rem #f0c597a0; /* Ombre bleue */
+}
+.form-select:focus{
+    border: none;
+
+    box-shadow: 0 0 0 0.2rem #f0c597a0; /* Ombre bleue */   
+}

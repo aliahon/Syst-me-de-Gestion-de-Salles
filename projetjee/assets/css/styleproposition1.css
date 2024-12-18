@@ -1,0 +1,31 @@
+:root {
+    --main-color:#fa8815;
+   }
+    body {
+        background: linear-gradient(to right, #ffffff, #aaaaaa);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .card {
+        transition: transform 0.2s, box-shadow 0.2s;
+        border: none;
+        box-shadow: 0 0 0 0.2rem #fdcc98a0;
+    }
+    .card:hover {
+        transform: scale(1.03);
+        border: none;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+    .btn-confirm {
+        background-color: var(--main-color);
+        color: white;
+    }
+    .btn-confirm:hover {
+        background-color: var(--main-color);
+    }
+    h1{
+        color: var(--main-color);
+    }

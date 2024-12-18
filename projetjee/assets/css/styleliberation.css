@@ -1,0 +1,35 @@
+:root {
+    --main-color:#fa9715;
+       }
+    body {
+        background: linear-gradient(to right, #ffffff, #c0c0c0);
+    }
+    .table-container {
+      margin-top: 50px;
+    }
+    .table-header {
+     
+      color:var(--main-color);
+      padding: 20px;
+     
+      text-align: center;
+    }
+    .btn-temp{
+    color:#ffffff;
+    border-color:  var(--main-color);
+    background-color: var(--main-color);
+    }
+    .btn-temp:hover{
+        color:var(--main-color);
+    border-color: var(--main-color);
+   
+    }
+    .btn-defi{
+    color:#000000;
+    border-color:#000000; 
+}
+.btn-defi:hover{
+    color:#fff9f9;
+    border-color:#000000;
+    background-color: #000000; 
+}

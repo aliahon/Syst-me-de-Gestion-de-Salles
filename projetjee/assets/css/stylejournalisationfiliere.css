@@ -1,0 +1,50 @@
+:root {
+    --main-color:#fa9715;
+}
+body {
+    background: linear-gradient(to right, #ffffff, #b4b4b4);
+}
+.table-container {
+    margin-top: 50px;
+}
+h1 {
+    color: var(--main-color);
+}
+
+
+.table-succ th{
+    color:white;
+   background-color: var(--main-color);
+   
+}
+
+ h2{
+    margin-bottom: 20px;
+}
+
+
+.table-rounded{
+     /* border-color: rgb(158, 158, 158); */
+     border-radius: 7px;
+     overflow: hidden;
+     -webkit-border-radius: 7px;
+     -moz-border-radius: 7px;
+     -ms-border-radius: 7px;
+     -o-border-radius: 7px;
+}
+
+
+  .icon {
+    font-size: 1.2rem;
+    margin-left: 10px;
+}
+.icon-ajoute {
+    color: #a7ff55;
+}
+.icon-supprim {
+    color: #080808;
+}
+.table-dang th{
+    color:white;
+    background-color: gray;
+}

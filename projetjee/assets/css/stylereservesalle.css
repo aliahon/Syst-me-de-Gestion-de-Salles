@@ -1,0 +1,75 @@
+     :root {
+    --main-color:#fa9715;
+     }
+      body {
+          background: linear-gradient(to right, #ffffff, #a5a5a5);
+      }
+      h2 , h1{
+          color: var(--main-color);
+      }
+      .form-container {
+          background: #ffffff;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          padding: 30px;
+      }
+      .btn-custom {
+          background-color: var(--main-color);
+          color: white;
+          
+      }
+      .btn-custom:hover {
+          color: var(--main-color);
+          border-color: var(--main-color);
+      }
+      .btn-retourne{
+          color:#ffffff;
+          background-color:#8b8b8b;
+      }
+      .btn-retourne:hover{
+          color: #8b8b8b;
+          border-color: #8b8b8b;
+      }
+     
+      .form-select:focus{
+          border: none;
+
+          box-shadow: 0 0 0 0.2rem #f3b84aa0; /* Ombre bleue */
+      }
+      .form-control:focus{
+        border: none;
+
+        box-shadow: 0 0 0 0.2rem #f3b84aa0; /* Ombre bleue */
+    }
+    .list-group-item-suc{
+        border: none;
+
+        box-shadow: 0 0 7px 0.2rem var(--main-color); /* Ombre bleue */
+    }
+    .list-group-item-warn{
+        border: none;
+
+        box-shadow: 0 0 7px 0.2rem gray; /* Ombre bleue */
+    }
+    .list-group-item-suc h5{
+       color: var(--main-color);
+    }
+    .list-group-item-warn h5{
+      color: gray;
+    }
+    .btn-outline-pri{
+        border-color: var(--main-color);
+        color: var(--main-color);
+    }
+    .btn-outline-pri:hover{
+        background-color: var(--main-color);
+        color: white;
+    }
+    .list-group-item-confirmer:hover{
+        background-color: #faddb6;
+
+    }
+    .list-group-item-confirmer{
+       font-weight: bold;
+
+    }
