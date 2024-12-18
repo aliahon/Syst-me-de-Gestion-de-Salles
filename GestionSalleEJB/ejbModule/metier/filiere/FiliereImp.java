@@ -1,4 +1,6 @@
 package metier.filiere;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -10,7 +12,6 @@ import metier.entities.*;
 public class FiliereImp implements FiliereLocal , FiliereRemote {
 	@PersistenceContext(unitName="GestionSalle")
 	private EntityManager em;
-	
 	@Override
 	public void ajouterFiliere(Filiere F) {
 		 em.persist(F);
@@ -145,5 +146,19 @@ public class FiliereImp implements FiliereLocal , FiliereRemote {
         List<Filiere> result = query.getResultList();
         return !result.isEmpty(); // Retourne true si la filière existe, false sinon
     }
+
+	@Override
+	public List<String> getMatieres(String id) {
+	    // Charger la filière par son ID
+	    Filiere filiere = em.find(Filiere.class, id);
+	    if (filiere != null) {
+	        // Récupérer les noms des matières depuis la Map
+	        return new ArrayList<>(filiere.getMatieres().keySet());
+	    }
+	    return Collections.emptyList(); // Retourner une liste vide si la filière n'existe pas
+	}
+
+
+
 
 }

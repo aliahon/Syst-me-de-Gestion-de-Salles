@@ -55,8 +55,8 @@ public class UtilisateurImp implements UtilisateurLocal, UtilisateurRemote {
     @SuppressWarnings("unchecked")
     @Override
     public List<Utilisateur> listProfesseurs() {
-        Query req = em.createQuery("SELECT u FROM Utilisateur u WHERE u.role = ?");
-        req.setParameter(1, Role.PROF);
+    	Query req = em.createQuery("SELECT u FROM Utilisateur u WHERE u.role = ?1");
+    	req.setParameter(1, Role.PROF);
         return req.getResultList();
     }
 
@@ -80,4 +80,10 @@ public class UtilisateurImp implements UtilisateurLocal, UtilisateurRemote {
             return false;
         }
     }
+
+
+	@Override
+	public Utilisateur getUtilisateurByid(Long id) {
+		return em.find(Utilisateur.class, id);
+	}
 }

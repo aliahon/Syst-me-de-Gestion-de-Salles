@@ -20,7 +20,7 @@
                     <div class="profile-section">
                         <div class="d-flex align-items-center">
                             <img src="assets\images\Capture d’écran 2024-12-12 142058.png" alt="Profile" class="profile-img">
-                            <span class="profile-name">${name}</span>
+                            <span class="profile-name">${user.nom}</span>
                            
                         </div>
                         <a href="index.jsp" class="btn btn-outline btn-deco">Déconnexion</a>
@@ -36,7 +36,7 @@
                     <div class="buttons-section">
                         <div class="d-grid gap-3">
                             <a href="ServletAjoutFiliere" class="btn btn-outline  btn-custom">Gestion de Filière</a>
-                            <a href="FiliereServlet" class="btn btn-outline btn-custom">Planification</a>
+                            <a href="plannificationemploi.jsp" class="btn btn-outline btn-custom">Planification</a>
                             <a href="journalisation.jsp" class="btn btn-outline btn-custom">Journalisation</a>
                         </div>
                     </div>

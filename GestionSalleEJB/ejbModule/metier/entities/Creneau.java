@@ -1,7 +1,7 @@
 package metier.entities;
 
-
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.persistence.*;
 
@@ -19,12 +19,11 @@ public class Creneau implements Serializable {
     private Long id;
 
     // Utilisation de Date pour inclure la date et l'heure
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date dateDebut; // Date et heure de début du créneau
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dateFin;   // Date et heure de fin du créneau
-
+    private String periode ;
+    
     private String matiere; // Matière liée à ce créneau
 
     @ManyToOne
@@ -42,9 +41,9 @@ public class Creneau implements Serializable {
     // Constructeurs
     public Creneau() {}
 
-    public Creneau(Date dateDebut, Date dateFin, String matiere, Salle salle, Utilisateur prof, Filiere filiere) {
+    public Creneau(Date dateDebut,String periode, String matiere, Salle salle, Utilisateur prof, Filiere filiere) {
         this.dateDebut = dateDebut;
-        this.dateFin = dateFin;
+        this.periode=periode ;
         this.matiere = matiere;
         this.salle = salle;
         this.prof = prof;
@@ -66,14 +65,6 @@ public class Creneau implements Serializable {
 
     public void setDateDebut(Date dateDebut) {
         this.dateDebut = dateDebut;
-    }
-
-    public Date getDateFin() {
-        return dateFin;
-    }
-
-    public void setDateFin(Date dateFin) {
-        this.dateFin = dateFin;
     }
 
     public String getMatiere() {
@@ -107,4 +98,16 @@ public class Creneau implements Serializable {
     public void setFiliere(Filiere filiere) {
         this.filiere = filiere;
     }
+
+	public String getPeriode() {
+		return periode;
+	}
+
+	public void setPeriode(String periode) {
+		this.periode = periode;
+	}
+	 public String getDayAsString() {
+	        SimpleDateFormat sdf = new SimpleDateFormat("EEEE"); // Format pour jour complet (ex: Lundi)
+	        return sdf.format(dateDebut);
+	 }
 }

@@ -11,6 +11,9 @@
 	  <class>metier.entities.NatureSalle</class>
 	  <class>metier.entities.Filiere</class>
 	  <class>metier.entities.Creaneau</class>
+	  <class>metier.entities.Reservation</class>
+	  <class>metier.entities.Liberation</class>
+	  <class>metier.entities.Horaire</class>
 	  <properties>
             <property name="javax.persistence.schema-generation.database.action" value="update"/>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

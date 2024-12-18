@@ -24,12 +24,12 @@
 	</servlet-mapping>
 	
 	<servlet>
-	    <servlet-name>FiliereServlet</servlet-name>
-	    <servlet-class>web.FiliereServlet</servlet-class>
+	    <servlet-name>ServletEmploi</servlet-name>
+	    <servlet-class>web.ServletEmploi</servlet-class>
 	</servlet>
 	<servlet-mapping>
-	    <servlet-name>FiliereServlet</servlet-name>
-	    <url-pattern>/FiliereServlet</url-pattern>
+	    <servlet-name>ServletEmploi</servlet-name>
+	    <url-pattern>/ServletEmploi</url-pattern>
 	</servlet-mapping>
 	
 	<servlet>

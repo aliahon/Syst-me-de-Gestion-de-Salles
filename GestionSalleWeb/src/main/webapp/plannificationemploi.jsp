@@ -24,7 +24,7 @@
             <div class="col-md-8 search-bar">
                 <form class="d-flex">
                     <i class="fas fa-search icon "></i>
-                    <input id="filter" class="form-control me-2" type="search" placeholder="Rechercher une filière ..." aria-label="Search">
+                    <input id="filter" class="form-control me-2" type="search" placeholder="Rechercher une filière" aria-label="Search">
                 </form>
             </div>
         </div>
@@ -33,12 +33,11 @@
         <div class="row justify-content-center">
             <div class="col-md-8 list-container">
                 <div class="list-group" id="filiere-list">
-                
                 <c:forEach var="filiere" items="${filieres}">
-                    <div class="list-group-item">
-                        <a href="emploitemps.jsp?idFiliere=${filiere.id}">${filiere.nom}</a>
-                    </div>
-                </c:forEach>  
+                  <form action="ServletEmploi" method="get" >
+                    <input type="submit"  class="list-group-item w-100 rounded" name="nomFiliere" value="${filiere.nom}">
+                  </form>
+                </c:forEach>
                 </div>
             </div>
         </div>
@@ -52,12 +51,13 @@
 	            var value = $(this).val().trim().toLowerCase(); // Remove spaces and convert to lowercase
 	
 	            if (value === "") {
-	                // If the input is empty or spaces, show all items
-	                $("#filiere-list .list-group-item").show();
+	                // If the input is empty, show all items
+	                $("#filiere-list .list-group-item").parent().show();
 	            } else {
 	                // Filter the list
-	                $("#filiere-list .list-group-item").filter(function () {
-	                    $(this).toggle($(this).text().toLowerCase().includes(value));
+	                $("#filiere-list .list-group-item").each(function () {
+	                    var filiereName = $(this).val().trim().toLowerCase(); // Get input value
+	                    $(this).parent().toggle(filiereName.includes(value));
 	                });
 	            }
 	        });

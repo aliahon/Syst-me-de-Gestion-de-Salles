@@ -19,4 +19,6 @@ public interface UtilisateurRemote {
 	    
 	    List<Utilisateur> listProfesseurs();
 
+		Utilisateur getUtilisateurByid(Long id);
+
 }

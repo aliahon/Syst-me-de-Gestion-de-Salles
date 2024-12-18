@@ -19,4 +19,6 @@ public interface UtilisateurLocal {
 	    
 	    List<Utilisateur> listProfesseurs();
 
+		Utilisateur getUtilisateurByid(Long id);
+
 }

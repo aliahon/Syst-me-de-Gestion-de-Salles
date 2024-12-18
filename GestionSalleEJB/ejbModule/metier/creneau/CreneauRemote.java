@@ -5,7 +5,6 @@ import java.util.List;
 import javax.ejb.Remote;
 
 import metier.entities.Creneau;
-
 @Remote
 public interface CreneauRemote {
 	public void ajouterCreneau(Creneau R);

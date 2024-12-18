@@ -28,7 +28,7 @@ public class Filiere implements Serializable {
     @Column(name = "charge_horaire") // Valeur de la Map (charge horaire)
     private Map<String, Integer> matieres = new HashMap<>();
 
-    @OneToMany(mappedBy = "filiere", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "filiere", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
     private List<Creneau> emploiDuTemps = new ArrayList<>();
 
     // Constructeur par défaut
