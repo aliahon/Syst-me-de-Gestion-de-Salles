@@ -1,4 +1,4 @@
-package journalisation;
+package metier.journalisation;
 
 import java.util.List;
 

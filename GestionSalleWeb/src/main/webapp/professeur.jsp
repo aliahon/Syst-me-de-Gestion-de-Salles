@@ -36,7 +36,7 @@
                     <!-- Buttons Section -->
                     <div class="buttons-section">
                         <div class="d-grid gap-3">
-                            <a href="reservationsalle.jsp" class="btn btn-outline  btn-custom">Demande De Réservation</a>
+                            <a href="DemandeServlet" class="btn btn-outline  btn-custom">Demande De Réservation</a>
                             <a href="liberationsalle.jsp" class="btn btn-outline btn-custom">libération</a>
                             <a href="journalisation.jsp" class="btn btn-outline btn-custom">Journalisation</a>
                         </div>

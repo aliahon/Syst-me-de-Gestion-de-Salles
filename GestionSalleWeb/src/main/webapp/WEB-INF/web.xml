@@ -40,6 +40,15 @@
 	    <servlet-name>SalleServlet</servlet-name>
 	    <url-pattern>/SalleServlet</url-pattern>
 	</servlet-mapping>
+	
+		<servlet>
+	    <servlet-name>DemandeServlet</servlet-name>
+	    <servlet-class>web.DemandeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>DemandeServlet</servlet-name>
+	    <url-pattern>/DemandeServlet</url-pattern>
+	</servlet-mapping>
 
 </web-app>
 

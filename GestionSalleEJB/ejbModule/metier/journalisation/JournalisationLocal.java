@@ -1,13 +1,14 @@
-package journalisation;
+package metier.journalisation;
 
 import java.util.List;
 
-import javax.ejb.Remote;
+import javax.ejb.Local;
 
 import metier.entities.Journalisation;
 
-@Remote
-public interface JournalisationRemote {
+@Local
+public interface JournalisationLocal {
+
 	List<Journalisation> getJournalisationSalle();
 	List<Journalisation> getJournalisationFiliere();
 }
