@@ -20,8 +20,8 @@ public class Reservation implements Serializable {
     @JoinColumn(name = "filiere_id", nullable = false)
     private Filiere filiere; // Filière associée à la réservation
 
-    @ManyToOne
-    @JoinColumn(name = "creneau_reserve_id", nullable = false)
+    @ManyToOne(cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "creneau_reserve_id", nullable = false )
     private Creneau creneauReserve; // Creneau réservé (relation ManyToOne)
 
     @ManyToOne

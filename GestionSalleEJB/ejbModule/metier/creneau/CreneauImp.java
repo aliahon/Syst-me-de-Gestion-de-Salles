@@ -4,18 +4,24 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import metier.entities.Creneau;
 import metier.entities.Filiere;
+import metier.entities.Reservation;
 import metier.entities.Salle;
 import metier.entities.Utilisateur;
+import metier.reservation.ReservationLocal;
 @Stateless(name="Creneau")
 public class CreneauImp implements CreneauLocal ,CreneauRemote{
 	@PersistenceContext(unitName="GestionSalle")
 	private EntityManager em;
+	
+	@EJB
+	private ReservationLocal reservationService ;
 	@Override
 	public void ajouterCreneau(Creneau R) {
 		em.persist(R);
@@ -88,7 +94,6 @@ public class CreneauImp implements CreneauLocal ,CreneauRemote{
 
 	@Override
 	public void creationCreneauxEmploi(Filiere F, Salle S, String matiere, String Horaire, String Day, Utilisateur U) {
-		
         int charge = F.getMatieres().get(matiere);
         Date PremierCreneau = getProchaineDate(Day);
         System.out.println("Date Premier Creneau : " + PremierCreneau);
@@ -99,7 +104,11 @@ public class CreneauImp implements CreneauLocal ,CreneauRemote{
          for(int i=0 ;i<charge/2 ;i++) {
          // Utilisation de Calendar pour manipuler la date
            System.out.println("creation Creneau ");
-           ajouterCreneau(new Creneau(PremierCreneau,Horaire,matiere,S,U, F));
+           Creneau C = new Creneau(PremierCreneau,Horaire,matiere,S,U, F);
+           Reservation R = new Reservation(F,C,U,"Confirmée");
+           ajouterCreneau(C);
+           reservationService.ajouterReservation(R);
+           
            Calendar calendar = Calendar.getInstance();
            calendar.setTime(PremierCreneau);
          // Ajouter 7 jours
@@ -108,7 +117,7 @@ public class CreneauImp implements CreneauLocal ,CreneauRemote{
            System.out.println("Date future (+7 jours) : " + futureDate);
            PremierCreneau = futureDate ;
            }
-      /*
+      
 	    // Afficher les paramètres dans la console pour vérifier
 	       System.out.println("Jour : " + Day);
 	       System.out.println("Heure : " + Horaire);
@@ -116,7 +125,7 @@ public class CreneauImp implements CreneauLocal ,CreneauRemote{
 	       System.out.println("Professeur : " + U.getNom());
 	       System.out.println("Salle : " + S.getId());
 	       System.out.println("Filiere : " + F.getId());
-	       System.out.println("Date Premier Creneau : " + PremierCreneau);*/
+	       System.out.println("Date Premier Creneau : " + PremierCreneau);
 	}
 
 }

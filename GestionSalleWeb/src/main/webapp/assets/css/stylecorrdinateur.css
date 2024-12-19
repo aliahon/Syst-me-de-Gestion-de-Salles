@@ -80,3 +80,13 @@ body {
   margin-top: 50px;
   
 }
+.card-journ .btn-custom{
+ color: var(--main-color);
+ box-shadow: 0 0 10px var(--main-color);
+ border-color: var(--main-color);
+}
+.card-journ .btn-custom:hover{
+    color: white;
+   
+   background-color: var(--main-color);
+   }

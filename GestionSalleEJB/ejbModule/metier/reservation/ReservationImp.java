@@ -5,7 +5,9 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
+import metier.entities.Creneau;
 import metier.entities.Reservation;
 @Stateless(name="Reservation")
 public class ReservationImp implements ReservationLocal, ReservationRemote{
@@ -42,18 +44,37 @@ public class ReservationImp implements ReservationLocal, ReservationRemote{
 
 	@Override
 	public List<Reservation> listReservations(Long idProf) {
-		// TODO Auto-generated method stub
-		return null;
+	    // Création de la requête JPQL pour récupérer les réservations d'un utilisateur spécifique
+	    TypedQuery<Reservation> query = em.createQuery(
+	        "SELECT r FROM Reservation r WHERE r.prof.id = :idProf", Reservation.class);
+	    query.setParameter("idProf", idProf);
+
+	    // Retourner la liste des réservations
+	    return query.getResultList();
 	}
 
 	@Override
 	public void supprimerReservation(Long id) {
+	    Reservation r = em.find(Reservation.class, id);
+	    
+	    if (r != null) {
+	        Creneau creneau = r.getCreneauReserve();
+	        
+	        // Dissocier le créneau avant de supprimer la réservation
+	        //r.setCreneauReserve(null); // Désassociation du créneau
+	        
+	        // Supprimer la réservation
+	        em.remove(r);
+	        em.remove(creneau);
+	       
+	    }
+	}
+
+
+	@Override
+	public List<Reservation> listReservationsEnAttente() {
 		// TODO Auto-generated method stub
-		Reservation r = em.find(Reservation.class, id);
-        if (r != null) {
-            em.remove(r);
-        }
-		
+		return null;
 	}
 
 }

@@ -1,5 +1,5 @@
 :root {
-    --main-color:#fa9715;
+    --main-color:#fa8815;
 }
 body {
     background: linear-gradient(to right, #ffffff, #c0c0c0);
@@ -67,4 +67,9 @@ body {
 border: none;
 
 box-shadow: 0 0 0 0.2rem #f0c597a0; /* Ombre bleue */
+}
+.form-select:focus{
+    border: none;
+
+    box-shadow: 0 0 0 0.2rem #f0c597a0; /* Ombre bleue */   
 }
