@@ -38,7 +38,7 @@
                         <div class="d-grid gap-3">
                             <a href="SalleServlet" class="btn btn-outline  btn-custom">Gestion Des Salles</a>
                             <a href="gestiondemandes.jsp" class="btn btn-outline btn-custom">Gestion Des Demandes</a>
-                            <a href="journalisationggestionnaire.jsp" class="btn btn-outline btn-custom">Journalisation</a>
+                            <a href="JournalisationServlet?req=2" class="btn btn-outline btn-custom">Journalisation</a>
                         </div>
                     </div>
                 </div>

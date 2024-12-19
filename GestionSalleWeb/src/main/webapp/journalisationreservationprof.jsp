@@ -66,6 +66,7 @@
                     <!-- Les données dynamiques depuis le backend Java -->
                     <!-- Exemples fictifs à remplacer par des balises Java -->
                     <tr>
+                    	<td>Exceptionnelle</td>
                         <td>salle K13 </td>
                         <td>14:00 - 16:00</td>
                         <td>2024-12-16</td>
@@ -74,6 +75,7 @@
                      
                     </tr>
                     <tr>
+                    	<td>Definitive</td>
                         <td>salle K13 </td>
                         <td>14:00 - 16:00</td>
                         <td>2024-12-16</td>

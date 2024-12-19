@@ -27,7 +27,7 @@
             <th>Horaire</th>
             <th>Date</th>
             <th>Type</th>
-            <th>FiliÃ¨re</th>
+            <th>Filière</th>
             <th>Actions</th>
           </tr>
         </thead>

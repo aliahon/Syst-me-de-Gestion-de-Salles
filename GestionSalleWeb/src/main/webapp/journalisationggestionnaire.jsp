@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +22,7 @@
                     <div class="buttons-section">
                         <div class="d-grid gap-3">
                             <a href="JournalisationServlet?req=2" class="btn btn-outline  btn-custom">Salles</a>
-                            <a href="journalisationreservationprof.jsp" class="btn btn-outline btn-custom">Reservation/LibÃ©ration</a>
+                            <a href="journalisationreservationprof.jsp" class="btn btn-outline btn-custom">Reservation/Libération</a>
                         
                         </div>
                     </div>
