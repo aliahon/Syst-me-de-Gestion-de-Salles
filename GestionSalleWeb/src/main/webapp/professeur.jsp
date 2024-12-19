@@ -1,6 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="metier.entities.Utilisateur" %>
+<%@ page import="javax.servlet.http.HttpSession" %>
 
+<%
+    
+    Utilisateur u = (Utilisateur) session.getAttribute("user");
+
+    if (u != null) {
+        // Récupérer l'ID de l'utilisateur
+        Long idprof = u.getId();
+        session.setAttribute("idprof", idprof); // Si vous voulez aussi stocker l'ID dans la session pour l'utiliser ailleurs
+    } else {
+        out.println("Utilisateur non connecté.");
+    }
+%>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -38,7 +52,7 @@
                         <div class="d-grid gap-3">
                             <a href="DemandeServlet" class="btn btn-outline  btn-custom">Demande De Réservation</a>
                             <a href="liberationsalle.jsp" class="btn btn-outline btn-custom">libération</a>
-                            <a href="journalisationreservationprof.jsp" class="btn btn-outline btn-custom">Journalisation</a>
+                            <a href="JournalisationServlet?req=<%= session.getAttribute("idprof") %>" class="btn btn-outline btn-custom">Journalisation</a>
                         </div>
                     </div>
                 </div>

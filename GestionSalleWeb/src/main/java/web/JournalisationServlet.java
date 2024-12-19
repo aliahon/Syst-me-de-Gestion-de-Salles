@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import metier.entities.Journalisation;
+import metier.entities.Liberation;
 import metier.journalisation.JournalisationLocal;
+import metier.liberation.LiberationLocal;
 
 /**
  * Servlet implementation class JournalisationServlet
@@ -23,27 +25,36 @@ public class JournalisationServlet extends HttpServlet {
        
     @EJB
     JournalisationLocal journalisationService;
+    @EJB
+    LiberationLocal liberationService;
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String req = request.getParameter("req");
-		if("1".equals(req)) {
-			List<Journalisation> journalisationFilieres =  journalisationService.getJournalisationFiliere();
-			// Inverser la liste
-	        Collections.reverse(journalisationFilieres);
-			request.setAttribute("journalisationFilieres", journalisationFilieres);
-			
-			request.getRequestDispatcher("journalisationfilieres.jsp").forward(request, response);
-		}else if("2".equals(req)) {
-			List<Journalisation> journalisationSalles =  journalisationService.getJournalisationSalle();
-			// Inverser la liste
-	        Collections.reverse(journalisationSalles);
-			request.setAttribute("journalisationSalles", journalisationSalles);
-			
-			request.getRequestDispatcher("journalisationsalles.jsp").forward(request, response);
-		}else {
-            // Gérer le cas où le paramètre "req" est manquant ou invalide
-            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Requête invalide !");
-        }
+		if(req != null && !req.isEmpty()) {
+			if("filiere".equals(req)) {
+				List<Journalisation> journalisationFilieres =  journalisationService.getJournalisationFiliere();
+				// Inverser la liste
+		        Collections.reverse(journalisationFilieres);
+				request.setAttribute("journalisationFilieres", journalisationFilieres);
+				
+				request.getRequestDispatcher("journalisationfilieres.jsp").forward(request, response);
+			}else if("salle".equals(req)) {
+				List<Journalisation> journalisationSalles =  journalisationService.getJournalisationSalle();
+				// Inverser la liste
+		        Collections.reverse(journalisationSalles);
+				request.setAttribute("journalisationSalles", journalisationSalles);
+				
+				request.getRequestDispatcher("journalisationsalles.jsp").forward(request, response);
+			}else{
+				Long idprof = Long.parseLong(req);
+				List<Liberation> liberations = liberationService.listLiberations(idprof);
+				// Inverser la liste
+		        Collections.reverse(liberations);
+				request.setAttribute("liberations", liberations);
+				
+				request.getRequestDispatcher("journalisationreservationprof.jsp").forward(request, response);
+			}
+		}
 	}
 
 	/**
