@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <title>Historique des Filères</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -27,33 +28,28 @@
                     </tr>
                 </thead>
                 <tbody>
-                   
-                
-                    <!-- Exemple de données dynamiques -->
-                    <tr class="ajoute">
-                        <td> Ginfo2</td>
-                        <td> Ajout </td>
-                        <td>Filière ajoutée :Ginfo2 </td>
-                        <td>12-12-2024</td>
-                    </tr>
-                    <tr class="supprim">
-                        <td>Fid</td>
-                        <td> Suppression </td>
-                        <td>Filière supprimée : Fid</td>
-                        <td>10-12-2024</td>
-                    </tr>
-                    <tr class="ajoute">
-                        <td>JEE</td>
-                        <td>Ajout </td>
-                        <td>Filière ajoutée : JEE</td>
-                        <td>08-12-2024</td>
-                    </tr>
-                    <tr class="supprim">
-                        <td>BTP</td>
-                        <td> Suppression <i class="fas fa-trash-alt icon icon-supprim"></i></td>
-                        <td>Filère supprimée : BTP</td>
-                        <td>05-12-2024</td>
-                    </tr>
+                   <c:forEach var="journalisationFiliere" items="${journalisationFilieres}">
+			            <!-- Condition si la demande est confirmée -->
+			            <c:if test="${journalisationFiliere.operationType == 'Ajout'}">
+			                <tr class="ajoute">
+		                        <td>${journalisationFiliere.recordId}</td>
+		                        <td> ${journalisationFiliere.operationType}</td>
+		                        <td>${journalisationFiliere.details }</td>
+		                        <td>${journalisationFiliere.operationTime}</td>
+		                    </tr>
+			            </c:if>
+			
+			            <!-- Condition si la demande est en attente -->
+			            <c:if test="${journalisationFiliere.operationType== 'Suppression'}">
+			           		<tr class="supprim">
+		                        <td>${journalisationFiliere.recordId}</td>
+		                        <td> ${journalisationFiliere.operationType}</td>
+		                        <td>${journalisationFiliere.details }</td>
+		                        <td>${journalisationFiliere.operationTime}</td>
+		                    </tr>
+			            </c:if>
+			        </c:forEach>
+
                 </tbody>
             </table>
 

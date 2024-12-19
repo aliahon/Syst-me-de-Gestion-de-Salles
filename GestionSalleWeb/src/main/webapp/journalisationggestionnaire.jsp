@@ -21,7 +21,7 @@
                     <!-- Buttons Section -->
                     <div class="buttons-section">
                         <div class="d-grid gap-3">
-                            <a href="journalisationsalles.jsp" class="btn btn-outline  btn-custom">Salles</a>
+                            <a href="JournalisationServlet?req=2" class="btn btn-outline  btn-custom">Salles</a>
                             <a href="journalisationreservationprof.jsp" class="btn btn-outline btn-custom">Reservation/Libération</a>
                         
                         </div>

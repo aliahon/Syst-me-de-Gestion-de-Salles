@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <title>Historique des Salles</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -27,33 +28,27 @@
                     </tr>
                 </thead>
                 <tbody>
-                   
-                
-                    <!-- Exemple de données dynamiques -->
-                    <tr class="ajoute">
-                        <td>Salle F12</td>
-                        <td> Ajout <i class="fas fa-check-circle icon icon-ajoute"></i></td>
-                        <td>Salle ajoutée : F12</td>
-                        <td>12-12-2024</td>
-                    </tr>
-                    <tr class="supprim">
-                        <td>Salle F08</td>
-                        <td> Suppression <i class="fas fa-trash-alt icon icon-supprim"></i></td>
-                        <td>Salle supprimée : F08</td>
-                        <td>10-12-2024</td>
-                    </tr>
-                    <tr class="ajoute">
-                        <td>Salle B02</td>
-                        <td>Ajout <i class="fas fa-check-circle  icon icon-ajoute"></i></td>
-                        <td>Salle ajoutée : B02</td>
-                        <td>08-12-2024</td>
-                    </tr>
-                    <tr class="supprim">
-                        <td>Salle A01</td>
-                        <td> Suppression <i class="fas fa-trash-alt icon icon-supprim"></i></td>
-                        <td>Salle supprimée : A01</td>
-                        <td>05-12-2024</td>
-                    </tr>
+                   <c:forEach var="journalisationSalle" items="${journalisationSalles}">
+			            <!-- Condition si la demande est confirmée -->
+			            <c:if test="${journalisationSalle.operationType == 'Ajout'}">
+			                <tr class="ajoute">
+		                        <td>${journalisationSalle.recordId}</td>
+		                        <td> ${journalisationSalle.operationType}</td>
+		                        <td>${journalisationSalle.details }</td>
+		                        <td>${journalisationSalle.operationTime}</td>
+		                    </tr>
+			            </c:if>
+			
+			            <!-- Condition si la demande est en attente -->
+			            <c:if test="${journalisationSalle.operationType== 'Suppression'}">
+			           		<tr class="supprim">
+		                        <td>${journalisationSalle.recordId}</td>
+		                        <td> ${journalisationSalle.operationType}</td>
+		                        <td>${journalisationSalle.details }</td>
+		                        <td>${journalisationSalle.operationTime}</td>
+		                    </tr>
+			            </c:if>
+			        </c:forEach>
                 </tbody>
             </table>
 
