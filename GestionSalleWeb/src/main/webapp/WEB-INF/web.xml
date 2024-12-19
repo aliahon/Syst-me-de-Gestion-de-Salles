@@ -58,6 +58,15 @@
 	    <servlet-name>JournalisationServlet</servlet-name>
 	    <url-pattern>/JournalisationServlet</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+	    <servlet-name>ReservationServlet</servlet-name>
+	    <servlet-class>web.ReservationServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>ReservationServlet</servlet-name>
+	    <url-pattern>/ReservationServlet</url-pattern>
+	</servlet-mapping>
 
 </web-app>
 

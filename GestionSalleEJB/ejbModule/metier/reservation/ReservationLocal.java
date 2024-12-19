@@ -15,6 +15,8 @@ public interface ReservationLocal {
     public List<Reservation> listReservations();// toutes les reservation 
     public List<Reservation> listReservationsEnAttente();//les demandes non confirmer
     public List<Reservation> listReservations(Long idProf);// selectionner les reservation faites par un utilisateur 
-    public void supprimerReservation(Long id);
-  
+    
+    public void supprimerReservation(Long id); //Libération Exeptionnelle
+    void supprimerReservationsParCreneau(Long idReservation) ; //Liberation Definitive
+    List<Object[]> afficherReservationsConfirmees();
 }

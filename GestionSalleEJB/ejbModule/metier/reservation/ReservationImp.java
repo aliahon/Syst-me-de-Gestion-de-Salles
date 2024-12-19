@@ -69,7 +69,51 @@ public class ReservationImp implements ReservationLocal, ReservationRemote{
 	       
 	    }
 	}
+	
+	@Override
+	public void supprimerReservationsParCreneau(Long idReservation) {
+	    // Récupérer la réservation avec l'ID fourni
+	    Reservation reservation = em.find(Reservation.class, idReservation);
+	    
+	    if (reservation != null) {
+	        // Récupérer l'ID du créneau associé à cette réservation
+	        Long idCreneau = reservation.getCreneauReserve().getId();
+	        
+	        // Créer la requête JPQL pour récupérer toutes les réservations liées à ce créneau
+	        TypedQuery<Reservation> query = em.createQuery(
+	            "SELECT r FROM Reservation r WHERE r.creneauReserve.id = :idCreneau", Reservation.class);
+	        query.setParameter("idCreneau", idCreneau);
+	        
+	        // Récupérer la liste des réservations associées au créneau
+	        List<Reservation> reservations = query.getResultList();
+	        
+	        // Supprimer chaque réservation récupérée
+	        for (Reservation r : reservations) {
+	            em.remove(r);
+	        }
+	    }
+	}
 
+	
+	@Override
+	public List<Object[]> afficherReservationsConfirmees() {
+	    // JPQL pour récupérer les informations nécessaires avec condition sur le statut
+	    TypedQuery<Object[]> query = em.createQuery(
+	        "SELECT r.id, " +                       // ID de la réservation
+	               "r.creneauReserve.salle.id, " + // Nom de la salle
+	               "r.creneauReserve.periode, " +   // Horaire
+	               "r.creneauReserve.dateDebut, " +      // Date
+	               "r.creneauReserve.salle.nature, " +      // Type
+	               "r.filiere.nom " +               // Filière
+	        "FROM Reservation r " +
+	        "WHERE r.statut = :statut", Object[].class);
+
+	    // Assigner la valeur du paramètre :statut
+	    query.setParameter("statut", "confirmé");
+
+	    // Retourner la liste des résultats
+	    return query.getResultList();
+	}
 
 	@Override
 	public List<Reservation> listReservationsEnAttente() {

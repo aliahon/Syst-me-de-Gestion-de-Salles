@@ -51,7 +51,7 @@
                     <div class="buttons-section">
                         <div class="d-grid gap-3">
                             <a href="DemandeServlet" class="btn btn-outline  btn-custom">Demande De Réservation</a>
-                            <a href="liberationsalle.jsp" class="btn btn-outline btn-custom">libération</a>
+                            <a href="ReservationServlet" class="btn btn-outline btn-custom">libération</a>
                             <a href="JournalisationServlet?req=<%= session.getAttribute("idprof") %>" class="btn btn-outline btn-custom">Journalisation</a>
                         </div>
                     </div>
