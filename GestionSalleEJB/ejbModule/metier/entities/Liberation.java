@@ -1,82 +1,114 @@
 package metier.entities;
 
-import java.io.Serializable;
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-	@Table(name = "liberation")
-	public class Liberation implements Serializable {
-		/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+@Table(name = "liberation")
+public class Liberation implements Serializable {
 
-		@Id
-	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    private Long id; // Identifiant unique pour la réservation
+    private static final long serialVersionUID = 1L;
 
-	    @ManyToOne
-	    @JoinColumn(name = "filiere_id", nullable = false)
-	    private Filiere filiere; // Filière associée à la réservation
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id; // Identifiant unique pour la libération
 
-	    @ManyToOne
-	    @JoinColumn(name = "creneau_reserve_id", nullable = false)
-	    private Creneau creneauReserve; // Creneau réservé (relation ManyToOne)
+    @Column(name = "nom_salle", nullable = false)
+    private String nomSalle; // Nom de la salle
 
-	    @ManyToOne
-	    @JoinColumn(name = "prof_id", nullable = false)
-	    private Utilisateur prof; // Professeur ayant effectué la réservation
+    @Column(name = "horaire", nullable = false)
+    private String horaire; // Horaire de la réservation
 
-	    //private String statut; // Statut de la réservation (par exemple : "confirmée", "en attente", "annulée")
+    @Column(name = "date_reservation", nullable = false)
+    private java.util.Date dateReservation; // Date de la réservation
 
-	    // Constructeurs
-	    public Liberation() {}
+    @Column(name = "type_salle", nullable = false)
+    private String typeSalle; // Nature de la salle réservée
 
-	    public Liberation(Filiere filiere, Creneau creneauReserve, Utilisateur prof, String statut) {
-	        this.filiere = filiere;
-	        this.creneauReserve = creneauReserve;
-	        this.prof = prof;
-	        //this.statut = statut;
-	    }
+    @Column(name = "filiere", nullable = false)
+    private String filiere; // Filière associée à la réservation
 
-	    // Getters et Setters
-	    public Long getId() {
-	        return id;
-	    }
+    @Column(name = "type_liberation", nullable = false)
+    private String typeLiberation; // Type de la libération (Exceptionnelle ou Définitive)
 
-	    public void setId(Long id) {
-	        this.id = id;
-	    }
+    @Column(name = "id_prof", nullable = false)
+    private Long idProf; // Identifiant du professeur qui a effectué la libération
 
-	    public Filiere getFiliere() {
-	        return filiere;
-	    }
+    // Constructeurs
+    public Liberation() {}
 
-	    public void setFiliere(Filiere filiere) {
-	        this.filiere = filiere;
-	    }
+    public Liberation(String nomSalle, String horaire, java.util.Date dateReservation, String typeSalle, String filiere, String typeLiberation, Long idProf) {
+        this.nomSalle = nomSalle;
+        this.horaire = horaire;
+        this.dateReservation = dateReservation;
+        this.typeSalle = typeSalle;
+        this.filiere = filiere;
+        this.typeLiberation = typeLiberation;
+        this.idProf = idProf;
+    }
 
-	    public Creneau getCreneauReserve() {
-	        return creneauReserve;
-	    }
+    // Getters et Setters
+    public Long getId() {
+        return id;
+    }
 
-	    public void setCreneauReserve(Creneau creneauReserve) {
-	        this.creneauReserve = creneauReserve;
-	    }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	    public Utilisateur getProf() {
-	        return prof;
-	    }
+    public String getNomSalle() {
+        return nomSalle;
+    }
 
-	    public void setProf(Utilisateur prof) {
-	        this.prof = prof;
-	    }
+    public void setNomSalle(String nomSalle) {
+        this.nomSalle = nomSalle;
+    }
 
-	   /* public String getStatut() {
-	        return statut;
-	    }
+    public String getHoraire() {
+        return horaire;
+    }
 
-	    public void setStatut(String statut) {
-	        this.statut = statut;
-	    }*/
+    public void setHoraire(String horaire) {
+        this.horaire = horaire;
+    }
+
+    public java.util.Date getDateReservation() {
+        return dateReservation;
+    }
+
+    public void setDateReservation(java.util.Date dateReservation) {
+        this.dateReservation = dateReservation;
+    }
+
+    public String getTypeSalle() {
+        return typeSalle;
+    }
+
+    public void setTypeSalle(String typeSalle) {
+        this.typeSalle = typeSalle;
+    }
+
+    public String getFiliere() {
+        return filiere;
+    }
+
+    public void setFiliere(String filiere) {
+        this.filiere = filiere;
+    }
+
+    public String getTypeLiberation() {
+        return typeLiberation;
+    }
+
+    public void setTypeLiberation(String typeLiberation) {
+        this.typeLiberation = typeLiberation;
+    }
+
+    public Long getIdProf() {
+        return idProf;
+    }
+
+    public void setIdProf(Long idProf) {
+        this.idProf = idProf;
+    }
 }
