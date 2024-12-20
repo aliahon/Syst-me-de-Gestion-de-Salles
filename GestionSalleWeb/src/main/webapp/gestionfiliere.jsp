@@ -12,6 +12,16 @@
 </head>
 <body>
     <div class="container">
+     <div class="col-12 d-flex justify-content-between">
+                <!-- Bouton Retour à la page principale -->
+                <a href="coordinateur.jsp" class="btn btn-outline-secondary">
+                    <i class="bi bi-house-door"></i> Home
+                </a>
+                <!-- Bouton Retour à la page précédente -->
+                <button class="btn btn-outline-secondary" onclick="history.back()">
+                    <i class="bi bi-arrow-left"></i> Retour
+                </button>
+            </div>
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <div class="card p-4">
@@ -78,16 +88,18 @@
 				            <td>${filiere.chargeHoraireTotale}</td> <!-- Charge Horaire Totale -->
 				            <td>${filiere.nomsMatieres}</td> <!-- Noms des matières -->
 				            <td>
-				                <form method="get" action="ServletAjoutFiliere">
-				                        <input type="hidden" name="action" value="modifier">
-				                        <input type="hidden" name="idFiliere" value="${filiere.id}">
-				                        <button type="submit" class="btn btn-outline-warning btn-sm">Modifier</button>
-				                </form>
-				                <form method="post" action="ServletAjoutFiliere">
-				                        <input type="hidden" name="action" value="supprimer">
-				                        <input type="hidden" name="idFiliere" value="${filiere.id}">
-				                        <button type="submit" class="btn btn-outline-danger btn-sm">Supprimer</button>
-				                </form>
+				                 <div class="d-flex gap-2">
+        <form method="get" action="ServletAjoutFiliere">
+            <input type="hidden" name="action" value="modifier">
+            <input type="hidden" name="idFiliere" value="${filiere.id}">
+            <button type="submit" class="btn btn-outline-warning btn-sm">Modifier</button>
+        </form>
+        <form method="post" action="ServletAjoutFiliere">
+            <input type="hidden" name="action" value="supprimer">
+            <input type="hidden" name="idFiliere" value="${filiere.id}">
+            <button type="submit" class="btn btn-outline-danger btn-sm">Supprimer</button>
+        </form>
+    </div>
 				            </td>
 				        </tr>
 				    </c:forEach>

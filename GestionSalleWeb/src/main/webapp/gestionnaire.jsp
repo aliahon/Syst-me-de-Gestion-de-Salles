@@ -37,7 +37,7 @@
                     <div class="buttons-section">
                         <div class="d-grid gap-3">
                             <a href="SalleServlet" class="btn btn-outline  btn-custom">Gestion Des Salles</a>
-                            <a href="gestiondemandes.jsp" class="btn btn-outline btn-custom">Gestion Des Demandes</a>
+                            <a href="ServletConfirmation" class="btn btn-outline btn-custom">Gestion Des Demandes</a>
                             <a href="JournalisationServlet?req=salle" class="btn btn-outline btn-custom">Journalisation</a>
                         </div>
                     </div>

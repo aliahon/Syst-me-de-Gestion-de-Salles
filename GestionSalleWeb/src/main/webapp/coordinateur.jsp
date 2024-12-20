@@ -13,6 +13,7 @@
 </head>
 <body>
     <div class="container">
+    
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
@@ -36,7 +37,7 @@
                     <div class="buttons-section">
                         <div class="d-grid gap-3">
                             <a href="ServletAjoutFiliere" class="btn btn-outline  btn-custom">Gestion de Filière</a>
-                            <a href="plannificationemploi.jsp" class="btn btn-outline btn-custom">Planification</a>
+                            <a href="FiliereServlet" class="btn btn-outline btn-custom">Planification</a>
                             <a href="JournalisationServlet?req=filiere" class="btn btn-outline btn-custom">Journalisation</a>
                         </div>
                     </div>

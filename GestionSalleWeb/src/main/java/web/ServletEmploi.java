@@ -52,6 +52,7 @@ public class ServletEmploi extends HttpServlet {
         List<Salle> Salles = salleService.listSalles();
         List<Creneau> emploi = F.getEmploiDuTemps();
         List<Utilisateur> profs = utilisateurService.listProfesseurs();
+        
         request.setAttribute("profs", profs);
         request.setAttribute("emploi", emploi);
         request.setAttribute("salles", Salles);
@@ -80,7 +81,7 @@ public class ServletEmploi extends HttpServlet {
         creneauService.creationCreneauxEmploi(F,S,matiere,time,day,U);
         
 	    // Redirection pour rafraîchir la page avec les nouvelles données
-	    // response.sendRedirect("ServletEmploi");
+	    response.sendRedirect("ServletEmploi?nomFiliere="+idfiliere);
 	}
 	
 }

@@ -15,9 +15,10 @@
             <div class="card-body text-center p-5">
                 <h5 class="card-title mb-3">Salle F12</h5>
                 <p class="card-text">
-                    <strong>Type :</strong> Cours<br>
-                    <strong>Nombre de places :</strong> 50<br>
-                    <strong>Localisation :</strong> Bâtiment F
+                    <strong>Type :</strong> <span name="type" >Cours</span> <br>
+                    <strong>Nombre de places :</strong><span name="nbplace">50</span><br>
+                    <strong>Localisation :</strong><span name="localisation"></span><br>
+                    <strong>Horaire:</strong><span name="horaire"></span><br>
                 </p>
                 <button class="btn btn-confirm w-100" >Confirmer</button>
             </div>

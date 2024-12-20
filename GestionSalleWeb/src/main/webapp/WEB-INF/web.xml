@@ -1,74 +1,70 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
-  <display-name>GestionSalleWeb</display-name>
-  <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
-  </welcome-file-list>
-  
- 	<servlet>
-	    <servlet-name>loginServlet</servlet-name>
-	    <servlet-class>web.loginServlet</servlet-class>
+<display-name>GestionSalleWeb</display-name>
+<welcome-file-list>
+<welcome-file>index.jsp</welcome-file>
+</welcome-file-list>
+<servlet>
+<servlet-name>loginServlet</servlet-name>
+<servlet-class>web.loginServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>loginServlet</servlet-name>
+<url-pattern>/loginServlet</url-pattern>
+</servlet-mapping>
+<servlet>
+<servlet-name>ServletAjoutFiliere</servlet-name>
+<servlet-class>web.ServletAjoutFiliere</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>ServletAjoutFiliere</servlet-name>
+<url-pattern>/ServletAjoutFiliere</url-pattern>
+</servlet-mapping>
+<servlet>
+<servlet-name>ServletEmploi</servlet-name>
+<servlet-class>web.ServletEmploi</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>ServletEmploi</servlet-name>
+<url-pattern>/ServletEmploi</url-pattern>
+</servlet-mapping>
+<servlet>
+<servlet-name>SalleServlet</servlet-name>
+<servlet-class>web.SalleServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>SalleServlet</servlet-name>
+<url-pattern>/SalleServlet</url-pattern>
+</servlet-mapping>
+<servlet>
+<servlet-name>DemandeServlet</servlet-name>
+<servlet-class>web.DemandeServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>DemandeServlet</servlet-name>
+<url-pattern>/DemandeServlet</url-pattern>
+</servlet-mapping>
+    <servlet>
+	    <servlet-name>FiliereServlet</servlet-name>
+	    <servlet-class>web.FiliereServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-	    <servlet-name>loginServlet</servlet-name>
-	    <url-pattern>/loginServlet</url-pattern>
+	    <servlet-name>FiliereServlet</servlet-name>
+	    <url-pattern>/FiliereServlet</url-pattern>
 	</servlet-mapping>
-	
-	<servlet>
-	    <servlet-name>ServletAjoutFiliere</servlet-name>
-	    <servlet-class>web.ServletAjoutFiliere</servlet-class>
-	</servlet>
-	<servlet-mapping>
-	    <servlet-name>ServletAjoutFiliere</servlet-name>
-	    <url-pattern>/ServletAjoutFiliere</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-	    <servlet-name>ServletEmploi</servlet-name>
-	    <servlet-class>web.ServletEmploi</servlet-class>
-	</servlet>
-	<servlet-mapping>
-	    <servlet-name>ServletEmploi</servlet-name>
-	    <url-pattern>/ServletEmploi</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-	    <servlet-name>SalleServlet</servlet-name>
-	    <servlet-class>web.SalleServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-	    <servlet-name>SalleServlet</servlet-name>
-	    <url-pattern>/SalleServlet</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-	    <servlet-name>DemandeServlet</servlet-name>
-	    <servlet-class>web.DemandeServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-	    <servlet-name>DemandeServlet</servlet-name>
-	    <url-pattern>/DemandeServlet</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-	    <servlet-name>JournalisationServlet</servlet-name>
-	    <servlet-class>web.JournalisationServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-	    <servlet-name>JournalisationServlet</servlet-name>
-	    <url-pattern>/JournalisationServlet</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-	    <servlet-name>ReservationServlet</servlet-name>
-	    <servlet-class>web.ReservationServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-	    <servlet-name>ReservationServlet</servlet-name>
-	    <url-pattern>/ReservationServlet</url-pattern>
-	</servlet-mapping>
-
+<servlet>
+<servlet-name>JournalisationServlet</servlet-name>
+<servlet-class>web.JournalisationServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>JournalisationServlet</servlet-name>
+<url-pattern>/JournalisationServlet</url-pattern>
+</servlet-mapping>
+<servlet>
+<servlet-name>ReservationServlet</servlet-name>
+<servlet-class>web.ReservationServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>ReservationServlet</servlet-name>
+<url-pattern>/ReservationServlet</url-pattern>
+</servlet-mapping>
 </web-app>
-
-
-

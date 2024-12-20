@@ -105,7 +105,7 @@ public class CreneauImp implements CreneauLocal ,CreneauRemote{
          // Utilisation de Calendar pour manipuler la date
            System.out.println("creation Creneau ");
            Creneau C = new Creneau(PremierCreneau,Horaire,matiere,S,U, F);
-           Reservation R = new Reservation(F,C,U,"Confirmée");
+           Reservation R = new Reservation(F,C,U,"confirmée");
            ajouterCreneau(C);
            reservationService.ajouterReservation(R);
            

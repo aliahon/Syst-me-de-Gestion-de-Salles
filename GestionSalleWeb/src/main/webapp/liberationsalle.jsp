@@ -16,6 +16,16 @@
 <body>
 
   <div class="container">
+   <div class="col-12 d-flex justify-content-between">
+                <!-- Bouton Retour à la page principale -->
+                <a href="professeur.jsp" class="btn btn-outline-secondary">
+                    <i class="bi bi-house-door"></i> Home
+                </a>
+                <!-- Bouton Retour à la page précédente -->
+                <button class="btn btn-outline-secondary" onclick="history.back()">
+                    <i class="bi bi-arrow-left"></i> Retour
+                </button>
+            </div>
     <!-- Titre de la page -->
     <div class="table-header">
       <h1>Liste des Salles Réservées</h1>
@@ -43,7 +53,6 @@
 		        for (Object[] row : reservations) {
 		  %>
 		  <tr>
-		    <td><%= index++ %></td> <!-- Numéro incrémental -->
 		    <td><%= row[0] %></td>  <!-- ID de la réservation -->
 		    <td><%= row[1] %></td>  <!-- Nom de la salle -->
 		    <td><%= row[2] %></td>  <!-- Horaire -->
@@ -53,7 +62,7 @@
 		        <!-- Colonne des actions -->
 			<td>
 			  <!-- Formulaire pour Libération Définitive -->
-			  <form method="POST" action="gestionLiberation">
+			  <form method="POST" action="ReservationServlet">
 			    <input type="hidden" name="id" value="<%= row[0] %>">
 			    <input type="hidden" name="action" value="definitive">
 			    <button type="submit" class="btn btn-success btn-sm"
@@ -63,7 +72,7 @@
 			  </form>
 			
 			  <!-- Formulaire pour Libération Exceptionnelle -->
-			  <form method="POST" action="gestionLiberation">
+			  <form method="POST" action="ReservationServlet">
 			    <input type="hidden" name="id" value="<%= row[0] %>">
 			    <input type="hidden" name="action" value="exceptionnelle">
 			    <button type="submit" class="btn btn-warning btn-sm"

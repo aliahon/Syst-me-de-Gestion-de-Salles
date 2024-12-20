@@ -12,6 +12,17 @@
 </head>
 <body>
   <div class="container mt-5">
+              <div class="col-12 d-flex justify-content-between">
+                <!-- Bouton Retour ‡ la page principale -->
+                <a href="coordinateur.jsp" class="btn btn-outline-secondary">
+                    <i class="bi bi-house-door"></i> Home
+                </a>
+                <!-- Bouton Retour ‡ la page prÈcÈdente -->
+                <button class="btn btn-outline-secondary" onclick="history.back()">
+                    <i class="bi bi-arrow-left"></i> Retour
+                </button>
+            </div>
+††††††††</div>
     <h1 class="text-center">Emploi du Temps <span style="color: var(--main-color);">${Filiere.nom}</span></h1>
     <table class="table table-bordered text-center rounded-4 overflow-hidden tableprincip">
         <thead class="tete table-light">
@@ -180,7 +191,7 @@
 
         // R√©cup√©rer les donn√©es saisies dans le formulaire
         const subject = subjectSelect.value;
-        const professor = document.getElementById('professor').value;
+        const professor = document.getElementById('idProf').value;
         const room = roomSelect.value;
         const roomType = roomTypeSelect.value;
         const day = document.getElementById('currentDay').value;

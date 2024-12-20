@@ -10,9 +10,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import metier.entities.Journalisation;
 import metier.entities.Liberation;
+import metier.entities.Utilisateur;
 import metier.journalisation.JournalisationLocal;
 import metier.liberation.LiberationLocal;
 
@@ -30,6 +32,9 @@ public class JournalisationServlet extends HttpServlet {
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String req = request.getParameter("req");
+		HttpSession session =request.getSession();
+		Utilisateur Prof = (Utilisateur) session.getAttribute("user");
+	
 		if(req != null && !req.isEmpty()) {
 			if("filiere".equals(req)) {
 				List<Journalisation> journalisationFilieres =  journalisationService.getJournalisationFiliere();
@@ -46,7 +51,7 @@ public class JournalisationServlet extends HttpServlet {
 				
 				request.getRequestDispatcher("journalisationsalles.jsp").forward(request, response);
 			}else{
-				Long idprof = Long.parseLong(req);
+				Long idprof = Prof.getId();
 				List<Liberation> liberations = liberationService.listLiberations(idprof);
 				// Inverser la liste
 		        Collections.reverse(liberations);
@@ -61,7 +66,7 @@ public class JournalisationServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	
 		doGet(request, response);
 	}
 

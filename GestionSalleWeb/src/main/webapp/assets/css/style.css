@@ -1,6 +1,7 @@
 /* Ajout d'un fond de page avec un léger dégradé */
 body {
-    background: linear-gradient(to right, #ffffff, #d6d6d6);
+background: linear-gradient(to right, #ffffff, #d6d6d6);
+
   }
   
   /* Effet de survol du bouton */

@@ -11,6 +11,16 @@
 </head>
 <body>
     <div class="container">
+     <div class="col-12 d-flex justify-content-between">
+                <!-- Bouton Retour à la page principale -->
+                <a href="professeur.jsp" class="btn btn-outline-secondary">
+                    <i class="bi bi-house-door"></i> Home
+                </a>
+                <!-- Bouton Retour à la page précédente -->
+                <button class="btn btn-outline-secondary" onclick="history.back()">
+                    <i class="bi bi-arrow-left"></i> Retour
+                </button>
+            </div>
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card card-journ" >

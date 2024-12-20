@@ -31,12 +31,6 @@ public class ReservationImp implements ReservationLocal, ReservationRemote{
 	}
 
 	@Override
-	public void modifierReservation(Long id) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public List<Reservation> listReservations() {
 		// TODO Auto-generated method stub
 		return null;
@@ -109,16 +103,33 @@ public class ReservationImp implements ReservationLocal, ReservationRemote{
 	        "WHERE r.statut = :statut", Object[].class);
 
 	    // Assigner la valeur du paramètre :statut
-	    query.setParameter("statut", "confirmé");
+	    query.setParameter("statut", "confirmée");
 
 	    // Retourner la liste des résultats
 	    return query.getResultList();
 	}
-
 	@Override
 	public List<Reservation> listReservationsEnAttente() {
-		// TODO Auto-generated method stub
-		return null;
+	    return em.createQuery("SELECT r FROM Reservation r WHERE r.statut = :statut", Reservation.class)
+	             .setParameter("statut", "En attente")
+	             .getResultList();
 	}
+
+	@Override
+	public void modifierReservation(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void modifierReservation(Reservation R) {
+	    if (R != null) {
+	        em.merge(R); // Synchronise l'entité avec la base de données
+	    } else {
+	        throw new IllegalArgumentException("La réservation fournie est null.");
+	    }
+	}
+
+
 
 }
