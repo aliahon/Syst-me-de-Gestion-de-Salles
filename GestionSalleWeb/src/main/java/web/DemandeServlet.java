@@ -70,7 +70,6 @@ public class DemandeServlet extends HttpServlet {
 		String action = request.getParameter("action");
     	if ("supprimer".equals(action)) {
             Long idReservation = Long.parseLong(request.getParameter("idReservation"));
-            //Filiere supfiliere = filiereService.getFiliere(idFiliere);
             reservationService.supprimerReservation(idReservation);
             response.sendRedirect("DemandeServlet");
     	}

@@ -18,4 +18,5 @@ public interface ReservationRemote {
     public void supprimerReservation(Long id); //Libération Exeptionnelle
     void supprimerReservationsParCreneau(Long idReservation) ; //Liberation Definitive
     List<Object[]> afficherReservationsConfirmees();
+    public void handleAfterReservationDelete(Long idReservation, String typeLiberation) ;
 }

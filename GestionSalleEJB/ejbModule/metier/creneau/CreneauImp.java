@@ -92,40 +92,31 @@ public class CreneauImp implements CreneauLocal ,CreneauRemote{
         }
     }
 
-	@Override
-	public void creationCreneauxEmploi(Filiere F, Salle S, String matiere, String Horaire, String Day, Utilisateur U) {
-        int charge = F.getMatieres().get(matiere);
-        Date PremierCreneau = getProchaineDate(Day);
+    @Override
+    public void creationCreneauxEmploi(Filiere F, Salle S, String matiere, String Horaire, String Day, Utilisateur U) {
+        int charge = F.getMatieres().get(matiere); // Charge for the subject (how many times it should occur)
+        Date PremierCreneau = getProchaineDate(Day); // Get the date for the first session
         System.out.println("Date Premier Creneau : " + PremierCreneau);
-        //int charge =10;
-        // Date currentDate = new Date(); // Date actuelle
-        // System.out.println("Date actuelle : " + currentDate);
-         
-         for(int i=0 ;i<charge/2 ;i++) {
-         // Utilisation de Calendar pour manipuler la date
-           System.out.println("creation Creneau ");
-           Creneau C = new Creneau(PremierCreneau,Horaire,matiere,S,U, F);
-           Reservation R = new Reservation(F,C,U,"confirmée");
-           ajouterCreneau(C);
-           reservationService.ajouterReservation(R);
-           
-           Calendar calendar = Calendar.getInstance();
-           calendar.setTime(PremierCreneau);
-         // Ajouter 7 jours
-           calendar.add(Calendar.DAY_OF_MONTH, 7);
-           Date futureDate = calendar.getTime();
-           System.out.println("Date future (+7 jours) : " + futureDate);
-           PremierCreneau = futureDate ;
-           }
-      
-	    // Afficher les paramètres dans la console pour vérifier
-	       System.out.println("Jour : " + Day);
-	       System.out.println("Heure : " + Horaire);
-	       System.out.println("Matière : " + matiere);
-	       System.out.println("Professeur : " + U.getNom());
-	       System.out.println("Salle : " + S.getId());
-	       System.out.println("Filiere : " + F.getId());
-	       System.out.println("Date Premier Creneau : " + PremierCreneau);
-	}
+        
+        // Create the Creneau only once (outside the loop)
+        Creneau C = new Creneau(PremierCreneau, Horaire, matiere, S, U, F);
+        ajouterCreneau(C); // Add the Creneau to the database (if required)
+        
+        // Create and add multiple Reservations for the same Creneau
+        for (int i = 0; i < charge / 2; i++) {
+            Reservation R = new Reservation(F, C, U, "confirmée"); // Create a Reservation for the Creneau
+            reservationService.ajouterReservation(R); // Add the Reservation to the database
+
+            // Log the creation of the Reservation
+            System.out.println("Reservation " + (i + 1) + " created for Creneau: " + C.getId());
+            
+            // Move the date forward by 7 days for the next Reservation
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(PremierCreneau);
+            calendar.add(Calendar.DAY_OF_MONTH, 7);
+            PremierCreneau = calendar.getTime();
+            System.out.println("Date future (+7 jours) : " + PremierCreneau);
+        }
+    }
 
 }

@@ -99,9 +99,9 @@
 			                        <h5 class="mb-1">Demande Confirmée</h5>
 			                        <p class="mb-0">Date : ${demande.creneauReserve.dateDebut} | Créneau : ${demande.creneauReserve.periode} | Type Salle : ${demande.creneauReserve.salle.nature} | Salle : ${demande.creneauReserve.salle.id }</p>
 			                    </div>
-			                    <form method="post" action="SalleServlet">
+			                    <form method="post" action="DemandeServlet">
 				                        <input type="hidden" name="action" value="supprimer">
-				                        <input type="hidden" name="idSalle" value="${salle.id}">
+				                        <input type="hidden" name="idReservation" value="${salle.id}">
 				                        <button class="btn btn-outline-dark btn-sm">Voir Informations</button>
 				                </form>
 			                </div>
@@ -115,9 +115,9 @@
 			                        <p class="mb-0">Date : ${demande.creneauReserve.dateDebut} | Créneau : ${demande.creneauReserve.periode }| Type Salle : ${demande.creneauReserve.salle.nature} | Salle : ${demande.creneauReserve.salle.id }</p>
 			                    </div>
 			                    <div class="d-flex gap-2">
-			                    	<form method="get" action="SalleServlet">
+			                    	<form method="get" action="DemandeServlet">
 					                        <input type="hidden" name="action" value="modifier">
-					                        <input type="hidden" name="idSalle" value="${salle.id}">
+					                        <input type="hidden" name="idReservation" value="${demande.id}">
 					                        <button class="btn btn-outline-primary btn-sm">Modifier</button>
 					                </form>
 					                <form method="post" action="DemandeServlet">

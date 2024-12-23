@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import metier.entities.Creneau;
+import metier.entities.Liberation;
 import metier.entities.Reservation;
 @Stateless(name="Reservation")
 public class ReservationImp implements ReservationLocal, ReservationRemote{
@@ -52,39 +53,23 @@ public class ReservationImp implements ReservationLocal, ReservationRemote{
 	    Reservation r = em.find(Reservation.class, id);
 	    
 	    if (r != null) {
-	        Creneau creneau = r.getCreneauReserve();
-	        
-	        // Dissocier le créneau avant de supprimer la réservation
-	        //r.setCreneauReserve(null); // Désassociation du créneau
-	        
 	        // Supprimer la réservation
 	        em.remove(r);
-	        em.remove(creneau);
 	       
 	    }
 	}
 	
 	@Override
 	public void supprimerReservationsParCreneau(Long idReservation) {
-	    // Récupérer la réservation avec l'ID fourni
 	    Reservation reservation = em.find(Reservation.class, idReservation);
-	    
+
 	    if (reservation != null) {
-	        // Récupérer l'ID du créneau associé à cette réservation
 	        Long idCreneau = reservation.getCreneauReserve().getId();
-	        
-	        // Créer la requête JPQL pour récupérer toutes les réservations liées à ce créneau
-	        TypedQuery<Reservation> query = em.createQuery(
-	            "SELECT r FROM Reservation r WHERE r.creneauReserve.id = :idCreneau", Reservation.class);
-	        query.setParameter("idCreneau", idCreneau);
-	        
-	        // Récupérer la liste des réservations associées au créneau
-	        List<Reservation> reservations = query.getResultList();
-	        
-	        // Supprimer chaque réservation récupérée
-	        for (Reservation r : reservations) {
-	            em.remove(r);
-	        }
+
+	        // Execute a bulk delete query
+	        em.createQuery("DELETE FROM Reservation r WHERE r.creneauReserve.id = :idCreneau")
+	          .setParameter("idCreneau", idCreneau)
+	          .executeUpdate();
 	    }
 	}
 
@@ -131,5 +116,19 @@ public class ReservationImp implements ReservationLocal, ReservationRemote{
 	}
 
 
+	public void handleAfterReservationDelete(Long idReservation, String typeLiberation) {
+	    Reservation reservation = em.find(Reservation.class, idReservation);
 
+	        Liberation liberation = new Liberation();
+	        liberation.setNomSalle(reservation.getCreneauReserve().getSalle().getId());
+	        liberation.setHoraire(reservation.getCreneauReserve().getPeriode());
+	        liberation.setDateReservation(reservation.getCreneauReserve().getDateDebut());
+	        liberation.setTypeSalle(reservation.getCreneauReserve().getSalle().getNature().toString());
+	        liberation.setFiliere(reservation.getFiliere().getNom());
+	        liberation.setTypeLiberation(typeLiberation);
+	        liberation.setIdProf(reservation.getCreneauReserve().getProf().getId());
+
+	        em.persist(liberation);
+	    }
 }
+

@@ -42,14 +42,16 @@ public class ReservationServlet extends HttpServlet {
 
             // Vérifier l'action et appeler le service approprié
             if ("definitive".equals(action)) {
+            	reservationService.handleAfterReservationDelete(id, "Définitive");
                 reservationService.supprimerReservationsParCreneau(id);
             } else if ("exceptionnelle".equals(action)) {
+            	reservationService.handleAfterReservationDelete(id, "Exceptionnelle");
                 reservationService.supprimerReservation(id);
             }
         }
 
         // Redirection vers la page principale après traitement
-        response.sendRedirect("liberationsalle.jsp");
+        response.sendRedirect("ReservationServlet");
 	}
 
 }
