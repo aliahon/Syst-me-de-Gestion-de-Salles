@@ -42,11 +42,25 @@ public class DemandeServlet extends HttpServlet {
 	    private CreneauLocal creneauService;
 	 @EJB
 	    private SalleLocal salleService;
+
 	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setAttribute("natureSalles", NatureSalle.values());
+		String action = request.getParameter("action");
+        if ("modifier".equals(action)) {
+            Long idReservation = Long.parseLong(request.getParameter("idReservation"));
+            Reservation demande = reservationService.getReservation(idReservation);
+            Salle salle = demande.getCreneauReserve().getSalle();
+            Date date = demande.getCreneauReserve().getDateDebut();
+            String horaire = demande.getCreneauReserve().getPeriode();
+            Filiere filiere = demande.getFiliere();
+            request.setAttribute("salle", salle);
+            request.setAttribute("date", date);
+            request.setAttribute("horaire", horaire);
+            request.setAttribute("filiere", filiere);
+        }
 	    
 		 // Récupérer la liste des filières
         List<Filiere> filieres = filiereService.listFilieres();

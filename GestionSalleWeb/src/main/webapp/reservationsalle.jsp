@@ -31,6 +31,7 @@
                     </c:if>
                     <form action ="DemandeServlet" method="post">
                         <!-- Type de Salle -->
+                        
                         <div class="mb-3">
                             <label for="typeSalle" class="form-label">Nature de Salle</label>
 						    <select class="form-select" id="natureSalle" name="natureSalle" required>
@@ -45,16 +46,16 @@
                             <label for="creneauHoraire" class="form-label">Créneau Horaire</label>
                             <select class="form-select" id="creneauHoraire" name="horaire" required>
                                 <option value="">Choisir un créneau</option>
-                                <option value="8:30 - 10:20">8:30 - 10:20</option>
-                                <option value="10:40 - 12:30">10:40 - 12:30</option>
-                                <option value="14:30 - 16:20">14:30 - 16:20</option>
-                                <option value="16:40 - 18:30">16:40 - 18:30</option>
+                                <option value="8:30 - 10:20" ${horaire != null && horaire =="8:30 - 10:20" ? 'selected' : ''}>8:30 - 10:20</option>
+                                <option value="10:40 - 12:30" ${horaire != null && horaire =="10:40 - 12:30" ? 'selected' : ''}>10:40 - 12:30</option>
+                                <option value="14:30 - 16:20" ${horaire != null && horaire =="14:30 - 16:20" ? 'selected' : ''}>14:30 - 16:20</option>
+                                <option value="16:40 - 18:30" ${horaire != null && horaire =="16:40 - 18:30" ? 'selected' : ''}>16:40 - 18:30</option>
                             </select>
                         </div>
 
                         <div class="mb-3">
                             <label for="dateReservation" class="form-label">Date</label>
-                            <input type="date" class="form-control" id="dateReservation" name="date" required>
+                            <input type="date" class="form-control" id="dateReservation" name="date" value="${date != null ? date : ''}"  required>
                         </div>
 
                         <!-- FiliÃ¨re -->
